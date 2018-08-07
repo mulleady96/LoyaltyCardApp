@@ -7,4 +7,8 @@
 
 * App is available at: https://ionicmap-8b1d0.firebaseapp.com/
 
+# To run this app: 
+1. Clone from github 
+2. run npm i
+3. run ionic serve
 
