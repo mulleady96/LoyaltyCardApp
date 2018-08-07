@@ -1,0 +1,66 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>AddLoyaltyCard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<form>
+  <form [formGroup]="createLoyaltyForm" (submit)="createLoyaltyCard()" novalidate>
+   <ion-item>
+     <ion-label stacked>Shop Name</ion-label>
+     <ion-input formControlName="shopName" type="text"
+       placeholder="What's this shop called?">
+     </ion-input>
+   </ion-item>
+
+   <ion-item>
+     <ion-label stacked>loyaltyBalance</ion-label>
+     <ion-input formControlName="loyaltyBalance" type="text"
+       placeholder="What's your cards Loyalty Balance?">
+     </ion-input>
+   </ion-item>
+
+   <ion-item>
+     <ion-label stacked>Email</ion-label>
+     <ion-input formControlName="email" type="text"
+       placeholder="What's the shops email?">
+     </ion-input>
+   </ion-item>
+
+   <ion-item>
+     <ion-label stacked>About</ion-label>
+     <ion-textarea formControlName="about" type="text"
+       placeholder="What do they sell?">
+     </ion-textarea>
+   </ion-item>
+
+
+   <button ion-button block type="submit" [disabled]="!createLoyaltyForm.valid">
+     Add Loyalty Card
+     </button>
+   </form>
+
+   <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="scan()"><ion-icon name="qr-scanner"></ion-icon></button>
+      <button ion-fab (click)="reset()"><ion-icon name="refresh"></ion-icon></button>
+      <button ion-fab (click)="lookup()"><ion-icon name="eye"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+  <div *ngIf="results">
+    <h2>Format: {{results.format}}</h2>
+    <h2>Text: {{results.text}}</h2>
+  </div>
+
+ </form>
+
+</ion-content>

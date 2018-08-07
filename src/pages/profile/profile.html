@@ -1,0 +1,78 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+    <ion-buttons end>
+    <button ion-button icon-only (click)="logOut()">
+      <ion-icon name="log-out"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+   <ion-list-header>
+     <ion-avatar item-start>
+       <img src="https://firebasestorage.googleapis.com/v0/b/ionicmap-8b1d0.appspot.com/o/pictures%2Fprofile?alt=media&token=d90be82b-a872-483c-ad08-8ec275e6dc1c">
+     </ion-avatar>
+     Personal Information
+   </ion-list-header>
+   <ion-item (click)="updateName()">
+  <ion-grid>
+  <ion-row>
+    <ion-col col-6> Name </ion-col>
+    <ion-col col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">
+      {{userProfile?.firstName}} {{userProfile?.lastName}}
+    </ion-col>
+    <ion-col col-6 class="placeholder-profile"
+    *ngIf="!userProfile?.firstName">
+      <span> Tap here to edit. </span>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-item>
+
+<ion-item>
+<ion-label class="dob-label">Date of Birth</ion-label>
+<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/M/YYYY"
+[(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)"></ion-datetime>
+</ion-item>
+
+ <ion-item (click)="updateEmail()">
+<ion-grid>
+  <ion-row>
+    <ion-col col-6> Email </ion-col>
+    <ion-col col-6 *ngIf="userProfile?.email" text-wrap>
+      {{userProfile?.email}}
+    </ion-col>
+    <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.email">
+      <span> Tap here to edit. </span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-item>
+
+<ion-item (click)="updatePassword()">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6> Password </ion-col>
+      <ion-col col-6 class="placeholder-profile">
+        <span> Tap here to edit. </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+
+</ion-list>
+
+<button ion-button color="primary" (click)="takePhoto()"> Change Profile Pic</button>
+<button ion-button color="primary" (click)="getPhoto()"> Get Profile Pic</button>
+
+
+
+</ion-content>

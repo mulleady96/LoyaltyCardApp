@@ -1,0 +1,19 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ProductPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="pins">
+    <div class="pin" *ngFor="let image of images">
+      <img [src]="image">
+    </div>
+  </div>
+
+</ion-content>

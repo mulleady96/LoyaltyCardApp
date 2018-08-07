@@ -1,0 +1,25 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only color="primary" (click)="findMe()"><ion-icon name="locate"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Map</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <agm-map [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom">
+    <agm-marker [latitude]="map.lat" [longitude]="map.lng" >
+      <agm-info-window>
+        {{map.markerLabel}}
+      </agm-info-window>
+    </agm-marker>
+
+  </agm-map>
+
+</ion-content>

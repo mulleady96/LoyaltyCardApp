@@ -1,23 +1,36 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Loyalty Cards</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToLoyaltyPage()">
+      <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<!-- <ion-content class="card-background-page" padding>
+  <h2>Shop List</h2>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
+  <ion-card>
+    <button ion-item clear small *ngFor="let shop of shops | async" (click)="goToShopDetail(shop)">
+    <img src="https://i.pinimg.com/originals/2c/19/45/2c19454b8af52a34b70a358652086b5d.jpg" alt="" height="responsive" width="responsive">
+    <div class="card-title">{{ shop.shopName }}</div>
+    <div class="card-subtitle">{{ shop.loyaltyBalance }}</div>
+    </button>
+  </ion-card>
+</ion-list> -->
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchText" (ionInput)="getFilteredList()"></ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let shop of shops" (click)="goToShopDetail(shop.id)">
+    <h2> {{ shop.shopName }} </h2>
+    <h4 style="color: green;"> Loyalty Balance: <ion-badge color="secondary">{{shop.loyaltyBalance | number: fractionSize}}</ion-badge> </h4>
+
     </button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
 </ion-content>
