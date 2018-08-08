@@ -49,8 +49,8 @@ export class ShopApiProvider {
     return this.shopListRef.child(`${shopId}/recentPurchases`)
     .push({ product})
     .then( newPurchase => {
-      this.shopListRef.child(shopId).transaction(event => {
-        event.loyaltyBalance += 25; // loyaltyBalance is a string.
+      this.shopListRef.child(shopId).transaction(event => { // updates loyaltyBalance amount in shopDetail view.
+        event.loyaltyBalance += 25; 
         return event;
       });
     });
