@@ -21,8 +21,6 @@
       <h2> {{currentShop?.shopName}} </h2>
       <p>{{currentShop?.email}}</p>
     </ion-item>
-    <img src="">
-
 
     <ion-card-content>
       <h4>Shop Details  </h4>
@@ -60,17 +58,19 @@
   Add Purchase
 </button>
 
-<ion-list>
-   <ion-list-header>
-    <button ion-button round full color="secondary" (click)="getRecentPurchases(shopId)">Recent Purchases
-  </button>
-   </ion-list-header>
-   <ion-item *ngFor="let purchase of recentPurchases">
-     <p text-wrap>Product: <strong>{{purchase.product}}</strong> Reward: <ion-icon name="arrow-round-up" color="secondary"></ion-icon> 25 points</p>
-   </ion-item>
-
- </ion-list>
     </ion-card-content>
   </ion-card>
+
+  <ion-list>
+     <ion-list-header>
+      <button ion-button round full color="secondary" (click)="getRecentPurchases(shopId)">Recent Purchases
+    </button>
+     </ion-list-header>
+     <ion-item *ngFor="let purchase of recentPurchases">
+       <p text-wrap>Product: <strong>{{purchase.product}}</strong> <ion-icon name="arrow-round-up" color="secondary"></ion-icon> 25 points</p>
+       <p>{{purchase.createdDate | date:'medium' }}</p>
+     </ion-item>
+
+   </ion-list>
 
 </ion-content>

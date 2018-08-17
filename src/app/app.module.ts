@@ -29,6 +29,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { MapPage } from '../pages/map/map';
 import { Geolocation } from '@ionic-native/geolocation';
+import { FlashCardComponent } from '../components/flash-card/flash-card';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     ProductPage,
     ResetPasswordPage,
     AddLoyaltyCardPage,
+    FlashCardComponent,
   ],
   imports: [
     BrowserModule,

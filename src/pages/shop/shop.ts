@@ -52,15 +52,16 @@ export class ShopPage {
       purchasesSnapshot.forEach(snap => {
         this.recentPurchases.push({
           id: snap.key,
-          product: snap.val().product
+          product: snap.val().product,
+          createdDate: snap.val().createdDate
         });
         return false;
       });
     });
   }
 
-  goToProductPage(){
-    this.navCtrl.push(ProductPage);
+  goToProductPage(shopId: string): void{ // Pass in current shop id to the products page for transaction on the correct shop data.
+    this.navCtrl.push(ProductPage, { shopId: this.currentShop.id});
   }
 
   goToMap(){

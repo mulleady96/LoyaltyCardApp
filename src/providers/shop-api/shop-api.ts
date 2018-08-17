@@ -18,6 +18,7 @@ export class ShopApiProvider {
   //public shopList: FirebaseListObservable<any[]>;
   public searchText: string;
   public allShops: any;
+  public productRef: firebase.database.Reference;
   public shops = [];
 
   constructor(public db: AngularFireDatabase) {
@@ -38,22 +39,36 @@ export class ShopApiProvider {
   }
 
   getShopDetail(shopId: string): firebase.database.Reference { // Retrive details about the shop
-    return this.shopListRef.child(shopId);
+    return this.shopListRef.child(`${shopId}`);
   }
 
   getRecentPurchases(shopId: string): firebase.database.Reference { // Retieve the inner array within the shopDetail.
     return this.shopListRef.child(`${shopId}/recentPurchases`);
   }
 
+  //TODO:
+  getProducts(shopId: string): firebase.database.Reference { // Get Product data for product page.
+    this.productRef = this.shopListRef.child(`${shopId}/productData`);
+    return this.productRef;
+  }
+
   addPurchase(product: string, shopId: string): PromiseLike<any>{ // Add an item that was purchased, => increases loyaltybalance by 25 Points.
     return this.shopListRef.child(`${shopId}/recentPurchases`)
-    .push({ product})
+    .push({ product,
+    createdDate: Date()})
     .then( newPurchase => {
       this.shopListRef.child(shopId).transaction(event => {
         event.loyaltyBalance += 25; // loyaltyBalance is a string.
         return event;
       });
     });
+  }
+
+  redeemProduct(shopId: string){ // Click Redeem button in product html will enact this transaction.
+    return this.shopListRef.child(`${shopId}`).transaction(event => {
+      event.loyaltyBalance -= 100;
+      return event;
+    })
   }
 
 

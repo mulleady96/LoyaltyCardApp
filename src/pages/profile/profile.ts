@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Alert, LoadingController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ProfileProvider } from '../../providers/profile/profile';
 import { LoginPage } from '../login/login';
@@ -20,17 +20,26 @@ export class ProfilePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public alertCtrl: AlertController, public camera: Camera,
-      public authProvider: AuthProvider,
+      public authProvider: AuthProvider, public loadingCtrl: LoadingController,
       public profileProvider: ProfileProvider) {
 
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() { // fixes issue of null value if data does not load in time, when user clicks on field.
+    // solution - loadingCtrl - restrict user interaction until data is sought.
     console.log('Load User Profile');
-    this.profileProvider.getUserProfile().on("value", userProfileSnapshot => {
-  this.userProfile = userProfileSnapshot.val();
-  this.birthDate = userProfileSnapshot.val().birthDate;
+    const loader = this.loadingCtrl.create({
+      content: 'Loading Profile',
+      duration: 3000
     });
+    loader.present().then(() => {
+      this.profileProvider.getUserProfile().on("value", userProfileSnapshot => {
+    this.userProfile = userProfileSnapshot.val();
+    this.birthDate = userProfileSnapshot.val().birthDate;
+  });
+
+    });
+    loader.dismiss();
   }
 
   logOut(): void {
