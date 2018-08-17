@@ -57,8 +57,8 @@ export class ShopApiProvider {
     .push({ product,
     createdDate: Date()})
     .then( newPurchase => {
-      this.shopListRef.child(shopId).transaction(event => {
-        event.loyaltyBalance += 25; // loyaltyBalance is a string.
+      this.shopListRef.child(shopId).transaction(event => { // updates loyaltyBalance amount in shopDetail view.
+        event.loyaltyBalance += 25; 
         return event;
       });
     });
@@ -74,7 +74,7 @@ export class ShopApiProvider {
 
 
   createLoyaltyCard(shopName: string, loyaltyBalance: number,
-            email: string, about: string): firebase.database.ThenableReference {//Add new card to the top most array.
+            email: string, about: string): firebase.database.ThenableReference {//Add new card to the top most array. i.e. the shopList array.
 
     return this.shopListRef.push({
       shopName:  shopName,
