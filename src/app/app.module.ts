@@ -10,7 +10,7 @@ import { ListPage } from '../pages/list/list';
 import { config } from './credentials';
 import { AgmCoreModule } from '@agm/core';
 import { Camera } from '@ionic-native/camera';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +25,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ProfileProvider } from '../providers/profile/profile';
 import { ProductPage } from '../pages/product/product';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { MapPage } from '../pages/map/map';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -49,6 +49,7 @@ import { FlashCardComponent } from '../components/flash-card/flash-card';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,

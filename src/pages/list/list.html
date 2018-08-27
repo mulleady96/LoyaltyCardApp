@@ -12,25 +12,34 @@
   </ion-navbar>
 </ion-header>
 
-<!-- <ion-content class="card-background-page" padding>
-  <h2>Shop List</h2>
-  <ion-list>
-  <ion-card>
-    <button ion-item clear small *ngFor="let shop of shops | async" (click)="goToShopDetail(shop)">
-    <img src="https://i.pinimg.com/originals/2c/19/45/2c19454b8af52a34b70a358652086b5d.jpg" alt="" height="responsive" width="responsive">
-    <div class="card-title">{{ shop.shopName }}</div>
-    <div class="card-subtitle">{{ shop.loyaltyBalance }}</div>
-    </button>
-  </ion-card>
-</ion-list> -->
+
 <ion-content>
   <ion-searchbar [(ngModel)]="searchText" (ionInput)="getFilteredList()"></ion-searchbar>
-  <ion-list>
-    <button ion-item *ngFor="let shop of shops" (click)="goToShopDetail(shop.id)">
+
+  <!-- <ion-segment color="primary">
+    <ion-segment-button value="camera">
+      <ion-icon name="camera"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="heart">
+      <ion-icon name="heart"></ion-icon>
+    </ion-segment-button>
+  </ion-segment> -->
+
+  <ion-list @itemState reorder="true" (ionItemReorder)="reOrderItem($event)">
+    <ion-item-sliding *ngFor="let shop of shops">
+
+    <button ion-item  (click)="goToShopDetail(shop.id)">
     <h2> {{ shop.shopName }} </h2>
-    <h4 style="color: green;"> Loyalty Balance: <ion-badge color="secondary">{{shop.loyaltyBalance | number: fractionSize}}</ion-badge> </h4>
+    <h4 style="color: green;"> Loyalty Balance: <ion-badge color="{{shop.loyaltyBalance < 500 ? 'amber' : 'secondary'}}">{{shop.loyaltyBalance | number: fractionSize}}</ion-badge> </h4>
 
     </button>
+    <ion-item-options side="left">
+      <button ion-button icon-only color="primary" (click)="favouriteLoyaltyCard()">
+        <ion-icon name="heart"></ion-icon>
+        Favourite
+      </button>
+    </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
 </ion-content>

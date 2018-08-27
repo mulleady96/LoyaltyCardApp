@@ -38,6 +38,10 @@ export class ShopApiProvider {
     return this.shopListRef;
   }
 
+  updateShopList(indexes): Promise<any> { // Persists the reordering of shopList array
+    return this.shopListRef.update({ indexes });
+  }
+
   getShopDetail(shopId: string): firebase.database.Reference { // Retrive details about the shop
     return this.shopListRef.child(`${shopId}`);
   }
@@ -46,11 +50,10 @@ export class ShopApiProvider {
     return this.shopListRef.child(`${shopId}/recentPurchases`);
   }
 
-  //TODO:
-  getProducts(shopId: string): firebase.database.Reference { // Get Product data for product page.
-    this.productRef = this.shopListRef.child(`${shopId}/productData`);
-    return this.productRef;
-  }
+  // //TODO:
+  // getFavouriteShops(shopId: string): firebase.database.Reference {
+  // return this.shopListRef.child(`/favourites`);
+  // }
 
   addPurchase(product: string, shopId: string): PromiseLike<any>{ // Add an item that was purchased, => increases loyaltybalance by 25 Points.
     return this.shopListRef.child(`${shopId}/recentPurchases`)
@@ -58,7 +61,7 @@ export class ShopApiProvider {
     createdDate: Date()})
     .then( newPurchase => {
       this.shopListRef.child(shopId).transaction(event => { // updates loyaltyBalance amount in shopDetail view.
-        event.loyaltyBalance += 25; 
+        event.loyaltyBalance += 25;
         return event;
       });
     });

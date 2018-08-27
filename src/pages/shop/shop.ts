@@ -4,13 +4,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShopApiProvider } from '../../providers/shop-api/shop-api';
 import { ProductPage } from '../product/product';
 import { MapPage } from '../map/map';
-
-
+//import * as moment from 'moment';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @IonicPage()
 @Component({
   selector: 'page-shop',
   templateUrl: 'shop.html',
+  animations: [
+        trigger('itemState', [
+            transition('void => *', [
+                style({transform: 'translateX(-100%)'}),
+                animate('500ms ease-out')
+            ]),
+            transition('* => void', [
+                animate('500ms ease-in', style({transform: 'translateX(100%)'}))
+            ])
+        ])
+    ]
 })
 
 export class ShopPage {
@@ -20,6 +31,9 @@ export class ShopPage {
   public product: string = '';
   public points: number;
   public recentPurchases: Array<any>;
+  public lastPurchases: Array<any>;
+  public RecentPurchases = false; // boolean control - controls Recent Purchases & hide button.
+
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public shopApi: ShopApiProvider) {
@@ -31,11 +45,12 @@ export class ShopPage {
     });
   }
 
-  ionViewDidLoad() {
-
+  ionViewDidLoad(shopId: string) {
+    this.getLastPurchase(shopId);
+    this.getRecentPurchases(shopId);
   }
 
-  addPurchase(product: string): void {
+  addPurchase(product: string) {
       this.shopApi.addPurchase(
         product,
         this.currentShop.id,
@@ -43,8 +58,9 @@ export class ShopPage {
       .then(newPurchase => {
         this.product = "";
         //this.points = null;
-      })
+      });
   }
+
 
   getRecentPurchases(shopId: string){ // Shows the list of recentPurchases in the html view.
     this.shopApi.getRecentPurchases(this.navParams.get("shopId")).on("value", purchasesSnapshot => {
@@ -59,6 +75,22 @@ export class ShopPage {
       });
     });
   }
+
+   getLastPurchase(shopId: string){
+     this.shopApi.getRecentPurchases(this.navParams.get("shopId")).orderByKey().limitToLast(1).on('value', lastSnapshot => {
+       this.lastPurchases = [];
+       lastSnapshot.forEach(snap => {
+         this.lastPurchases.push({
+           id: snap.key,
+           product: snap.val().product,
+           createdDate: snap.val().createdDate
+         });
+         console.log(this.lastPurchases);
+         return false;
+       });
+     });
+
+   }
 
   goToProductPage(shopId: string): void{ // Pass in current shop id to the products page for transaction on the correct shop data.
     this.navCtrl.push(ProductPage, { shopId: this.currentShop.id});

@@ -1,22 +1,36 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, reorderArray } from 'ionic-angular';
 import { ShopPage } from '../shop/shop';
 import { ShopApiProvider } from '../../providers/shop-api/shop-api';
 //import { Shop } from '../../models/shop.interface';
 //import { Observable } from 'rxjs/Observable';
 import { AddLoyaltyCardPage } from '../add-loyalty-card/add-loyalty-card';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
+  animations: [
+        trigger('itemState', [
+            transition('void => *', [
+                style({transform: 'translateX(-100%)'}),
+                animate('500ms ease-out')
+            ]),
+            transition('* => void', [
+                animate('500ms ease-in', style({transform: 'translateX(100%)'}))
+            ])
+        ])
+    ]
 })
+
 export class ListPage {
 
   //public shops: Observable<Shop[]>; Use Observable for firestore.
   public shops: Array<any>;
   public searchText: string;
   public allShops: any;
+  public favouriteShops: Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
    private shopApi: ShopApiProvider, public loadingCtrl: LoadingController) {
@@ -83,7 +97,13 @@ export class ListPage {
         console.log(this.searchText);
 
       console.log(this.shops);
+    }
 
+    reOrderItem(indexes, shopId: string){ // Allows the user to reorder the array of loyalty Cards to their liking.
+      // i.e - Their favourite ones can be dragged to the top.
+      this.shops = reorderArray(this.shops, indexes);
+      this.shopApi.updateShopList(indexes);  
+      console.log(this.shops);
     }
 
     goToShopDetail(shopId: string): void {

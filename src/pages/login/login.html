@@ -44,6 +44,18 @@
 
 </form>
 
+<button ion-button block color="danger" (click)="googleLogin()">
+  <ion-icon name="logo-googleplus"></ion-icon>
+   Login With Google </button>
+
+   <button ion-button block color="dark" (click)="gitHubLogin()">
+     <ion-icon name="logo-github"></ion-icon>
+       Login With GitHub </button>
+
+<hr>
+
+
+
 <button ion-button block clear (click)="goToSignup()">
   Create a new account
 </button>
@@ -52,11 +64,4 @@
   I forgot my password 🙁
 </button>
 
-<button ion-button block color="danger" (click)="googleLogin()">
-  <ion-icon name="logo-googleplus"></ion-icon>
-   Login With Google </button>
-
-   <button ion-button block color="dark" (click)="gitHubLogin()">
-     <ion-icon name="logo-github"></ion-icon>
-      Login With GitHub </button>
 </ion-content>

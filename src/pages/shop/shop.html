@@ -5,7 +5,7 @@
     <ion-buttons end>
     <button ion-button color="primary" icon-only (click)="goToMap()"><ion-icon name="map"></ion-icon></button>
   </ion-buttons>
-    <ion-title>{{currentShop?.shopName}}</ion-title>
+    <ion-title>{{currentShop?.shopName | uppercase}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -26,6 +26,11 @@
       <h4>Shop Details  </h4>
       <p>{{currentShop?.about}} </p>
       <hr>
+      <ion-row>
+          <ion-note *ngFor="let last of lastPurchases" text-wrap>
+            <h4>Last Purchase:</h4><button ion-button clear small> {{last.createdDate | date: 'medium'}}</button></ion-note>
+
+      </ion-row>
     </ion-card-content>
 
     <ion-row>
@@ -35,6 +40,7 @@
           <div>{{currentShop?.loyaltyBalance | number: fractionSize}} Loyalty Points</div>
           </button>
           <button ion-button round color="secondary" (click)="goToProductPage()">View Products</button>
+
           <!-- <ion-chip color="secondary">
             <ion-label (click)="goToProductPage()">View Products</ion-label>
           </ion-chip> -->
@@ -61,16 +67,22 @@
     </ion-card-content>
   </ion-card>
 
+
   <ion-list>
      <ion-list-header>
-      <button ion-button round full color="secondary" (click)="getRecentPurchases(shopId)">Recent Purchases
+      <button ion-button round full color="secondary" color="{{!RecentPurchases ? 'secondary' : 'danger'}}" (click)="RecentPurchases=!RecentPurchases">
+        {{RecentPurchases ? 'Hide' : 'Recent Purchases'}}
     </button>
      </ion-list-header>
-     <ion-item *ngFor="let purchase of recentPurchases">
+     <ion-list *ngIf="RecentPurchases">
+     <ion-item @itemState *ngFor="let purchase of recentPurchases">
+
        <p text-wrap>Product: <strong>{{purchase.product}}</strong> <ion-icon name="arrow-round-up" color="secondary"></ion-icon> 25 points</p>
        <p>{{purchase.createdDate | date:'medium' }}</p>
      </ion-item>
+     <p *ngIf="recentPurchases.length <= 0">No Recent Purchases.</p>
 
+   </ion-list>
    </ion-list>
 
 </ion-content>
