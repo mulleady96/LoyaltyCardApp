@@ -5,7 +5,7 @@ import { ShopApiProvider } from '../../providers/shop-api/shop-api';
 import { ProductPage } from '../product/product';
 import { MapPage } from '../map/map';
 //import * as moment from 'moment';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @IonicPage()
 @Component({
@@ -15,10 +15,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         trigger('itemState', [
             transition('void => *', [
                 style({transform: 'translateX(-100%)'}),
-                animate('500ms ease-out')
+                animate('0.5s ease-in-out')
             ]),
             transition('* => void', [
-                animate('500ms ease-in', style({transform: 'translateX(100%)'}))
+                animate('0.5s ease-in-out', style({transform: 'translateY(100%)'}))
             ])
         ])
     ]
@@ -37,7 +37,7 @@ export class ShopPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public shopApi: ShopApiProvider) {
-    //this.shop = this.navParams.get('shop');
+    
     this.shopApi.getShopDetail(this.navParams.get("shopId")) // clicking on a shop, pass the correct id into the shop view. showing the correct index of the shopList array.
     .on("value", shopSnapshot => {
       this.currentShop = shopSnapshot.val();
@@ -62,8 +62,9 @@ export class ShopPage {
   }
 
 
-  getRecentPurchases(shopId: string){ // Shows the list of recentPurchases in the html view.
-    this.shopApi.getRecentPurchases(this.navParams.get("shopId")).on("value", purchasesSnapshot => {
+  getRecentPurchases(shopId: string){ // Shows the list of recentPurchases in the html view, a shallow array is created with slice() and this array is reversed
+    // to reflect a most recent activity. without harming the original data source.
+    this.shopApi.getRecentPurchases(this.navParams.get("shopId")).orderByChild('createdDate').on("value", purchasesSnapshot => {
       this.recentPurchases = [];
       purchasesSnapshot.forEach(snap => {
         this.recentPurchases.push({
@@ -76,7 +77,7 @@ export class ShopPage {
     });
   }
 
-   getLastPurchase(shopId: string){
+   getLastPurchase(shopId: string){ // Retrieves most recent purchase made at a store and returns this in shop detail view.
      this.shopApi.getRecentPurchases(this.navParams.get("shopId")).orderByKey().limitToLast(1).on('value', lastSnapshot => {
        this.lastPurchases = [];
        lastSnapshot.forEach(snap => {

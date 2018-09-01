@@ -1,3 +1,18 @@
 page-add-loyalty-card {
 
+  .error-message {
+    min-height: 2.2rem;
+    p {
+      font-size: 60%;
+      color: red;
+    }
+}
+
+  .remaining {
+    font-size: 80%;
+    position: absolute;
+    top: 5px;
+    left: 105px;
+    padding-left: 50px;
+  }
 }

@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>AddLoyaltyCard</ion-title>
+    <ion-title>Loyalty Card Details</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,7 +20,7 @@
    </ion-item>
 
    <ion-item>
-     <ion-label stacked>loyaltyBalance</ion-label>
+     <ion-label stacked>Loyalty Balance</ion-label>
      <ion-input formControlName="loyaltyBalance" type="text"
        placeholder="What's your cards Loyalty Balance?">
      </ion-input>
@@ -33,11 +33,17 @@
      </ion-input>
    </ion-item>
 
+   <ion-item class="error-message" *ngIf="!createLoyaltyForm.controls.email.valid &&
+    createLoyaltyForm.controls.email.touched">
+     <p>Please enter a valid email address.</p>
+   </ion-item>
+
    <ion-item>
      <ion-label stacked>About</ion-label>
-     <ion-textarea formControlName="about" type="text"
+     <ion-textarea (input)="onTextarea($event.target.value)" formControlName="about" rows="3" maxlength="200" type="text"
        placeholder="What do they sell?">
      </ion-textarea>
+     <ion-label class="remaining" color="{{remaining < 50 ? 'danger' : 'grey'}}">{{remaining}} Characters Remaining</ion-label>
    </ion-item>
 
 

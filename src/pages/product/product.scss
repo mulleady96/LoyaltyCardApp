@@ -1,4 +1,6 @@
 page-product {
+
+  // pinterest styling
   .pins {
     column-count: 3;
   }
@@ -7,5 +9,16 @@ page-product {
     display: inline-block;
     margin: 0 2px 10px;
     padding: 5px;
+  }
+
+  .fontStyling {
+    font-size: 2em;
+    font-style: oblique;
+    color: grey;
+    text-align: center;
+  }
+
+  .btnStyling {
+    text-align: center;
   }
 }

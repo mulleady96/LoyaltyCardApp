@@ -14,19 +14,22 @@
 
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="arrow-round-down"
+    pullingText="Pull To Refresh"
+    refreshingSpinner="crescent"
+    refreshingText="Updating Cards. . .">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-searchbar [(ngModel)]="searchText" (ionInput)="getFilteredList()"></ion-searchbar>
 
-  <!-- <ion-segment color="primary">
-    <ion-segment-button value="camera">
-      <ion-icon name="camera"></ion-icon>
-    </ion-segment-button>
-    <ion-segment-button value="heart">
-      <ion-icon name="heart"></ion-icon>
-    </ion-segment-button>
-  </ion-segment> -->
+  <p class="countHeader"> Loyalty Cards ({{count}}) </p>
 
-  <ion-list @itemState reorder="true" (ionItemReorder)="reOrderItem($event)">
-    <ion-item-sliding *ngFor="let shop of shops">
+  <!-- code for dragging items around -->
+<!-- (ionItemReorder)="reOrderItem($event)" -->
+  <ion-list [@itemState]>
+    <ion-item-sliding *ngFor="let shop of shops?.slice().reverse()">
 
     <button ion-item  (click)="goToShopDetail(shop.id)">
     <h2> {{ shop.shopName }} </h2>

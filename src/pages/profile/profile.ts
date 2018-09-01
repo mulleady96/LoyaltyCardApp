@@ -54,12 +54,12 @@ updateName(): void {
     inputs: [
       {
         name: "firstName",
-        placeholder: "Your first name",
+        placeholder: "First name",
         value: this.userProfile.firstName
       },
       {
         name: "lastName",
-        placeholder: "Your last name",
+        placeholder: "Last name",
         value: this.userProfile.lastName
       }
     ],

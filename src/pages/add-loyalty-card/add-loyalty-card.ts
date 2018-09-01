@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonicPage, NavController, NavParams, Loading, LoadingController, Alert, AlertController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ShopApiProvider } from '../../providers/shop-api/shop-api';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ToastController } from 'ionic-angular';
+import { EmailValidator } from '../../validators/email';
 
 @IonicPage()
 @Component({
@@ -14,6 +15,8 @@ export class AddLoyaltyCardPage {
 
   public createLoyaltyForm: FormGroup;
   public results: any;
+  public MaxLength: number = 200;
+  public remaining: number = 200;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public shopApi: ShopApiProvider, public formBuilder: FormBuilder,
@@ -22,13 +25,20 @@ public barcodeScanner: BarcodeScanner, public toastCtrl: ToastController) {
     this.createLoyaltyForm = formBuilder.group({
       shopName: ['', Validators.required],
       loyaltyBalance: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
       about: ['', Validators.required],
     });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddLoyaltyCardPage');
+  }
+
+  onTextarea(text: Object){
+    // Calculates characters remaining in textarea field.
+    this.remaining = this.MaxLength - Object.keys(text).length;
+  //  console.log(text);
+  //  console.log(this.remaining);
   }
 
   createLoyaltyCard(){
@@ -40,6 +50,7 @@ public barcodeScanner: BarcodeScanner, public toastCtrl: ToastController) {
     const loyaltyBalance = this.createLoyaltyForm.value.loyaltyBalance;
     const email = this.createLoyaltyForm.value.email;
     const about = this.createLoyaltyForm.value.about;
+
 
     this.shopApi.createLoyaltyCard(shopName, loyaltyBalance, email, about)
     .then( // Passing this form data to the shopApi provider.
