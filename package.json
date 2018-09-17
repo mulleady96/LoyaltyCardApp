@@ -7,6 +7,7 @@
   "scripts": {
     "start": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
+    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json -w -s",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint"
   },
@@ -49,6 +50,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.5",
     "@ionic/app-scripts": "3.1.11",
     "typescript": "~2.6.2"
   },

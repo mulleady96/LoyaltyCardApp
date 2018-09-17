@@ -11,7 +11,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html',
-  animations: [
+  animations: [ // Slide items up from the bottom of screen.
         trigger('itemState', [
             transition('void => *', [
                 style({transform: 'translateY(100%)'}),

@@ -1,0 +1,1328 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>IonicMap2 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">IonicMap2 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ShopPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/pages/shop/shop.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>page-shop</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>shop.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#currentShop">currentShop</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lastPurchases">lastPurchases</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#navCtrl">navCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#navParams">navParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#points">points</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#product">product</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#purchasesCount">purchasesCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#recentPurchases">recentPurchases</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#RecentPurchases">RecentPurchases</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#shopApi">shopApi</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addPurchase">addPurchase</a>
+                            </li>
+                            <li>
+                                <a href="#getLastPurchase">getLastPurchase</a>
+                            </li>
+                            <li>
+                                <a href="#getRecentPurchases">getRecentPurchases</a>
+                            </li>
+                            <li>
+                                <a href="#goToMap">goToMap</a>
+                            </li>
+                            <li>
+                                <a href="#goToProductPage">goToProductPage</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewDidLoad">ionViewDidLoad</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(navCtrl: NavController, navParams: NavParams, shopApi: <a href="../injectables/ShopApiProvider.html">ShopApiProvider</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/pages/shop/shop.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>navCtrl</td>
+                                                  
+                                                        <td>
+                                                                    <code>NavController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>navParams</td>
+                                                  
+                                                        <td>
+                                                                    <code>NavParams</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>shopApi</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ShopApiProvider.html" target="_self" >ShopApiProvider</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addPurchase"></a>
+                        <span class="name">
+                            <b>
+                            addPurchase
+                            </b>
+                            <a href="#addPurchase"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addPurchase(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/pages/shop/shop.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>product</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getLastPurchase"></a>
+                        <span class="name">
+                            <b>
+                            getLastPurchase
+                            </b>
+                            <a href="#getLastPurchase"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getLastPurchase(shopId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/pages/shop/shop.ts:82</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>shopId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getRecentPurchases"></a>
+                        <span class="name">
+                            <b>
+                            getRecentPurchases
+                            </b>
+                            <a href="#getRecentPurchases"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getRecentPurchases(shopId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/pages/shop/shop.ts:66</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>shopId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="goToMap"></a>
+                        <span class="name">
+                            <b>
+                            goToMap
+                            </b>
+                            <a href="#goToMap"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>goToMap()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/pages/shop/shop.ts:102</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="goToProductPage"></a>
+                        <span class="name">
+                            <b>
+                            goToProductPage
+                            </b>
+                            <a href="#goToProductPage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>goToProductPage(shopId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/pages/shop/shop.ts:98</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>shopId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ionViewDidLoad"></a>
+                        <span class="name">
+                            <b>
+                            ionViewDidLoad
+                            </b>
+                            <a href="#ionViewDidLoad"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ionViewDidLoad(shopId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/pages/shop/shop.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>shopId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentShop"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            currentShop
+                            </b>
+                            <a href="#currentShop"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>currentShop:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/pages/shop/shop.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lastPurchases"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            lastPurchases
+                            </b>
+                            <a href="#lastPurchases"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>lastPurchases:     <code>Array&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/pages/shop/shop.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="navCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            navCtrl
+                            </b>
+                            <a href="#navCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>navCtrl:     <code>NavController</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>NavController</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/pages/shop/shop.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="navParams"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            navParams
+                            </b>
+                            <a href="#navParams"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>navParams:     <code>NavParams</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>NavParams</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/pages/shop/shop.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="points"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            points
+                            </b>
+                            <a href="#points"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>points:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/pages/shop/shop.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="product"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            product
+                            </b>
+                            <a href="#product"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>product:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/pages/shop/shop.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="purchasesCount"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            purchasesCount
+                            </b>
+                            <a href="#purchasesCount"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>purchasesCount:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/pages/shop/shop.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recentPurchases"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            recentPurchases
+                            </b>
+                            <a href="#recentPurchases"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>recentPurchases:     <code>Array&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/pages/shop/shop.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="RecentPurchases"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            RecentPurchases
+                            </b>
+                            <a href="#RecentPurchases"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>RecentPurchases:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/pages/shop/shop.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shopApi"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            shopApi
+                            </b>
+                            <a href="#shopApi"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>shopApi:     <code><a href="../injectables/ShopApiProvider.html" target="_self" >ShopApiProvider</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/ShopApiProvider.html" target="_self" >ShopApiProvider</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/pages/shop/shop.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { IonicPage, NavController, NavParams } from &#x27;ionic-angular&#x27;;
+//import { Shop } from &#x27;../../models/shop.interface&#x27;;
+import { ShopApiProvider } from &#x27;../../providers/shop-api/shop-api&#x27;;
+import { ProductPage } from &#x27;../product/product&#x27;;
+import { MapPage } from &#x27;../map/map&#x27;;
+//import * as moment from &#x27;moment&#x27;;
+import { trigger, style, animate, transition } from &#x27;@angular/animations&#x27;;
+
+@IonicPage()
+@Component({
+  selector: &#x27;page-shop&#x27;,
+  templateUrl: &#x27;shop.html&#x27;,
+  animations: [
+        trigger(&#x27;itemState&#x27;, [
+            transition(&#x27;void &#x3D;&gt; *&#x27;, [
+                style({transform: &#x27;translateX(-100%)&#x27;}),
+                animate(&#x27;0.5s ease-in-out&#x27;)
+            ]),
+            transition(&#x27;* &#x3D;&gt; void&#x27;, [
+                animate(&#x27;0.5s ease-in-out&#x27;, style({transform: &#x27;translateY(100%)&#x27;}))
+            ])
+        ])
+    ]
+})
+
+export class ShopPage {
+
+  //public shop: Shop;
+  public currentShop: any &#x3D; {};
+  public product: string &#x3D; &#x27;&#x27;;
+  public purchasesCount: number;
+  public points: number;
+  public recentPurchases: Array&lt;any&gt;;
+  public lastPurchases: Array&lt;any&gt;;
+  public RecentPurchases &#x3D; false; // boolean control - controls Recent Purchases &amp; hide button.
+
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public shopApi: ShopApiProvider) {
+
+    this.shopApi.getShopDetail(this.navParams.get(&quot;shopId&quot;)) /** clicking on a shop, pass the correct id into the shop view. showing the correct index of the shopList array.*/
+    .on(&quot;value&quot;, shopSnapshot &#x3D;&gt; {
+      this.currentShop &#x3D; shopSnapshot.val();
+      this.currentShop.id &#x3D; shopSnapshot.key;
+    });
+  }
+
+  ionViewDidLoad(shopId: string) {
+    this.getLastPurchase(shopId);
+    this.getRecentPurchases(shopId);
+  }
+
+  addPurchase(product: string) {
+      this.shopApi.addPurchase(
+        product,
+        this.currentShop.id,
+      )
+      .then(newPurchase &#x3D;&gt; {
+        this.product &#x3D; &quot;&quot;;
+        //this.points &#x3D; null;
+      });
+  }
+
+
+  getRecentPurchases(shopId: string){ /** Shows the list of recentPurchases in the html view, this array is reversed
+     to reflect a most recent activity. without harming the original data source.*/
+    this.shopApi.getRecentPurchases(this.navParams.get(&quot;shopId&quot;)).orderByChild(&#x27;createdDate&#x27;).on(&quot;value&quot;, purchasesSnapshot &#x3D;&gt; {
+      this.recentPurchases &#x3D; [];
+      purchasesSnapshot.forEach(snap &#x3D;&gt; {
+        this.recentPurchases.push({
+          id: snap.key,
+          product: snap.val().product,
+          createdDate: snap.val().createdDate
+        });
+        return false;
+      });
+      this.purchasesCount &#x3D; this.recentPurchases.length; // count the number of purchases.
+    });
+  }
+
+   getLastPurchase(shopId: string){ // Retrieves most recent purchase made at a store and returns this in shop detail view.
+     this.shopApi.getRecentPurchases(this.navParams.get(&quot;shopId&quot;)).orderByKey().limitToLast(1).on(&#x27;value&#x27;, lastSnapshot &#x3D;&gt; {
+       this.lastPurchases &#x3D; [];
+       lastSnapshot.forEach(snap &#x3D;&gt; {
+         this.lastPurchases.push({
+           id: snap.key,
+           product: snap.val().product,
+           createdDate: snap.val().createdDate
+         });
+         console.log(this.lastPurchases);
+         return false;
+       });
+     });
+
+   }
+
+  goToProductPage(shopId: string): void{ // Pass in current shop id to the products page for transaction on the correct shop data.
+    this.navCtrl.push(ProductPage, { shopId: this.currentShop.id});
+  }
+
+  goToMap(){
+    this.navCtrl.push(MapPage);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;ion-header&gt;
+
+  &lt;ion-navbar&gt;
+    &lt;ion-buttons end&gt;
+    &lt;button ion-button color&#x3D;&quot;primary&quot; icon-only (click)&#x3D;&quot;goToMap()&quot;&gt;&lt;ion-icon name&#x3D;&quot;map&quot;&gt;&lt;/ion-icon&gt;&lt;/button&gt;
+  &lt;/ion-buttons&gt;
+    &lt;ion-title class&#x3D;&quot;expanded&quot;&gt;{{currentShop?.shopName | uppercase}}&lt;/ion-title&gt;
+  &lt;/ion-navbar&gt;
+
+&lt;/ion-header&gt;
+
+
+&lt;ion-content padding&gt;
+
+  &lt;ion-card&gt;
+    &lt;ion-item&gt;
+      &lt;ion-avatar item-start&gt;
+        &lt;img src&#x3D;&quot;https://picsum.photos/200/300/?random&quot;&gt;
+      &lt;/ion-avatar&gt;
+      &lt;h2&gt; {{currentShop?.shopName}} &lt;/h2&gt;
+      &lt;p&gt;{{currentShop?.email}}&lt;/p&gt;
+    &lt;/ion-item&gt;
+
+    &lt;ion-card-content&gt;
+      &lt;h4&gt;Shop Details  &lt;/h4&gt;
+      &lt;p text-wrap&gt;{{currentShop?.about}} &lt;/p&gt;
+      &lt;hr&gt;
+      &lt;ion-row&gt;
+          &lt;ion-note *ngFor&#x3D;&quot;let last of lastPurchases&quot; text-wrap&gt;
+            &lt;h4&gt;Last Purchase:&lt;/h4&gt;&lt;button ion-button icon-start clear small&gt;
+              &lt;ion-icon name&#x3D;&quot;cash&quot;&gt;&lt;/ion-icon&gt; {{last.createdDate | date: &#x27;medium&#x27;}}&lt;/button&gt;&lt;/ion-note&gt;
+
+      &lt;/ion-row&gt;
+    &lt;/ion-card-content&gt;
+
+    &lt;ion-row&gt;
+      &lt;ion-col&gt;
+        &lt;button ion-button icon-start clear small&gt;&lt;ion-icon name&#x3D;&quot;cart&quot;&gt;
+        &lt;/ion-icon&gt;
+          &lt;div&gt;{{currentShop?.loyaltyBalance | number: fractionSize}} Loyalty Points&lt;/div&gt;
+          &lt;ion-row&gt;
+            &lt;div style&#x3D;&quot;padding-left: 10px;&quot;&gt;&lt;ion-icon name&#x3D;&quot;basket&quot;&gt;&lt;/ion-icon&gt;Purchases: {{purchasesCount}}&lt;/div&gt;
+          &lt;/ion-row&gt;
+          &lt;/button&gt;
+          &lt;button ion-button round full small color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;goToProductPage()&quot;&gt;View Products&lt;/button&gt;
+
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-card&gt;
+
+  &lt;ion-card&gt;
+    &lt;ion-card-header&gt;Recent Purchases&lt;/ion-card-header&gt;
+    &lt;ion-card-content&gt;
+      &lt;ion-item&gt;
+
+      &lt;ion-label floating&gt;Product Name&lt;/ion-label&gt;
+      &lt;ion-input [(ngModel)]&#x3D;&quot;product&quot; type&#x3D;&quot;text&quot;&gt;&lt;/ion-input&gt;
+
+    &lt;/ion-item&gt;
+
+    &lt;button ion-button color&#x3D;&quot;primary&quot; block (click)&#x3D;&quot;addPurchase(product)&quot;
+[disabled]&#x3D;&quot;!product&quot;&gt;
+  Add Purchase
+&lt;/button&gt;
+
+    &lt;/ion-card-content&gt;
+  &lt;/ion-card&gt;
+
+
+  &lt;ion-list&gt;
+     &lt;ion-list-header&gt;
+      &lt;button ion-button round full color&#x3D;&quot;secondary&quot; color&#x3D;&quot;{{!RecentPurchases ? &#x27;secondary&#x27; : &#x27;danger&#x27;}}&quot; (click)&#x3D;&quot;RecentPurchases&#x3D;!RecentPurchases&quot;&gt;
+        {{RecentPurchases ? &#x27;Hide&#x27; : &#x27;Recent Purchases&#x27;}}
+    &lt;/button&gt;
+     &lt;/ion-list-header&gt;
+     &lt;ion-list @itemState *ngIf&#x3D;&quot;RecentPurchases&quot;&gt;
+     &lt;ion-item *ngFor&#x3D;&quot;let purchase of recentPurchases?.reverse()&quot;&gt;
+
+       &lt;p text-wrap&gt;Product: &lt;strong&gt;{{purchase.product}}&lt;/strong&gt; &lt;ion-icon name&#x3D;&quot;arrow-round-up&quot; color&#x3D;&quot;secondary&quot;&gt;&lt;/ion-icon&gt; 25 points&lt;/p&gt;
+       &lt;p&gt;{{purchase.createdDate | date:&#x27;medium&#x27; }}&lt;/p&gt;
+     &lt;/ion-item&gt;
+     &lt;p text-wrap class&#x3D;&quot;Nopurchases&quot; *ngIf&#x3D;&quot;recentPurchases.length &lt;&#x3D; 0&quot;&gt;
+       &lt;ion-icon color&#x3D;&quot;primary&quot; name&#x3D;&quot;alert&quot;&gt;&lt;/ion-icon&gt;No Recent Purchases.&lt;/p&gt;
+
+   &lt;/ion-list&gt;
+   &lt;/ion-list&gt;
+
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-navbar>    <ion-buttons end>    <button ion-button color="primary" icon-only (click)="goToMap()"><ion-icon name="map"></ion-icon></button>  </ion-buttons>    <ion-title class="expanded">{{currentShop?.shopName | uppercase}}</ion-title>  </ion-navbar></ion-header><ion-content padding>  <ion-card>    <ion-item>      <ion-avatar item-start>        <img src="https://picsum.photos/200/300/?random">      </ion-avatar>      <h2> {{currentShop?.shopName}} </h2>      <p>{{currentShop?.email}}</p>    </ion-item>    <ion-card-content>      <h4>Shop Details  </h4>      <p text-wrap>{{currentShop?.about}} </p>      <hr>      <ion-row>          <ion-note *ngFor="let last of lastPurchases" text-wrap>            <h4>Last Purchase:</h4><button ion-button icon-start clear small>              <ion-icon name="cash"></ion-icon> {{last.createdDate | date: \'medium\'}}</button></ion-note>      </ion-row>    </ion-card-content>    <ion-row>      <ion-col>        <button ion-button icon-start clear small><ion-icon name="cart">        </ion-icon>          <div>{{currentShop?.loyaltyBalance | number: fractionSize}} Loyalty Points</div>          <ion-row>            <div style="padding-left: 10px;"><ion-icon name="basket"></ion-icon>Purchases: {{purchasesCount}}</div>          </ion-row>          </button>          <button ion-button round full small color="secondary" (click)="goToProductPage()">View Products</button>      </ion-col>    </ion-row>  </ion-card>  <ion-card>    <ion-card-header>Recent Purchases</ion-card-header>    <ion-card-content>      <ion-item>      <ion-label floating>Product Name</ion-label>      <ion-input [(ngModel)]="product" type="text"></ion-input>    </ion-item>    <button ion-button color="primary" block (click)="addPurchase(product)"[disabled]="!product">  Add Purchase</button>    </ion-card-content>  </ion-card>  <ion-list>     <ion-list-header>      <button ion-button round full color="secondary" color="{{!RecentPurchases ? \'secondary\' : \'danger\'}}" (click)="RecentPurchases=!RecentPurchases">        {{RecentPurchases ? \'Hide\' : \'Recent Purchases\'}}    </button>     </ion-list-header>     <ion-list @itemState *ngIf="RecentPurchases">     <ion-item *ngFor="let purchase of recentPurchases?.reverse()">       <p text-wrap>Product: <strong>{{purchase.product}}</strong> <ion-icon name="arrow-round-up" color="secondary"></ion-icon> 25 points</p>       <p>{{purchase.createdDate | date:\'medium\' }}</p>     </ion-item>     <p text-wrap class="Nopurchases" *ngIf="recentPurchases.length <= 0">       <ion-icon color="primary" name="alert"></ion-icon>No Recent Purchases.</p>   </ion-list>   </ion-list></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddLoyaltyCardPage', 'selector': 'page-add-loyalty-card'},{'name': 'FlashCardComponent', 'selector': 'flash-card'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'ListPage', 'selector': 'page-list'},{'name': 'LoginPage', 'selector': 'page-login'},{'name': 'MapPage', 'selector': 'page-map'},{'name': 'MyApp', 'selector': ''},{'name': 'ProductPage', 'selector': 'page-product'},{'name': 'ProfilePage', 'selector': 'page-profile'},{'name': 'ResetPasswordPage', 'selector': 'page-reset-password'},{'name': 'ShopPage', 'selector': 'page-shop'},{'name': 'SignUpPage', 'selector': 'page-sign-up'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ShopPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ShopPage.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

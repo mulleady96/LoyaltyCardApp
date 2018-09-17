@@ -55,23 +55,30 @@ export class ShopApiProvider {
   // return this.shopListRef.child(`/favourites`);
   // }
 
-  addPurchase(product: string, shopId: string): PromiseLike<any>{ // Add an item that was purchased, => increases loyaltybalance by 25 Points.
+  addPurchase(product: string, shopId: string): PromiseLike<any>{ /** Add an item that was purchased, => increases loyaltybalance by 25 Points.*/
     return this.shopListRef.child(`${shopId}/recentPurchases`)
     .push({ product,
     createdDate: Date()})
     .then( newPurchase => {
-      this.shopListRef.child(shopId).transaction(event => { // updates loyaltyBalance amount in shopDetail view.
+      this.shopListRef.child(shopId).transaction(event => { /** updates loyaltyBalance amount in shopDetail view.*/
         event.loyaltyBalance += 25;
         return event;
       });
     });
   }
 
-  redeemProduct(shopId: string){ // Click Redeem button in product html will enact this transaction.
+  redeemProduct(shopId: string){ /** Click Redeem button in product html will enact this transaction.*/
     return this.shopListRef.child(`${shopId}`).transaction(event => {
+    // Simple check to see if user has enough points to perform transaction.
+    if(event.loyaltyBalance <= 0){
+      console.log('You do not have enough points');
+    }
+    else {
+      // If user has enough points, perform the transaction.
       event.loyaltyBalance -= 100;
       return event;
-    })
+      }
+    });
   }
 
 

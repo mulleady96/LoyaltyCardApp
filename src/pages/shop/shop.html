@@ -39,9 +39,11 @@
         <button ion-button icon-start clear small><ion-icon name="cart">
         </ion-icon>
           <div>{{currentShop?.loyaltyBalance | number: fractionSize}} Loyalty Points</div>
+          <ion-row>
+            <div style="padding-left: 10px;"><ion-icon name="basket"></ion-icon>Purchases: {{purchasesCount}}</div>
+          </ion-row>
           </button>
-          <button ion-button round color="secondary" (click)="goToProductPage()">View Products</button>
-
+          <button ion-button round full small color="secondary" (click)="goToProductPage()">View Products</button>
 
       </ion-col>
     </ion-row>
@@ -73,7 +75,7 @@
     </button>
      </ion-list-header>
      <ion-list @itemState *ngIf="RecentPurchases">
-     <ion-item *ngFor="let purchase of recentPurchases?.slice().reverse()">
+     <ion-item *ngFor="let purchase of recentPurchases?.reverse()">
 
        <p text-wrap>Product: <strong>{{purchase.product}}</strong> <ion-icon name="arrow-round-up" color="secondary"></ion-icon> 25 points</p>
        <p>{{purchase.createdDate | date:'medium' }}</p>

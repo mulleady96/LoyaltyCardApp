@@ -1,0 +1,1090 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>IonicMap2 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">IonicMap2 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ListPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/pages/list/list.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>page-list</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>list.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#allShops">allShops</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#count">count</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#favouriteShops">favouriteShops</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadingCtrl">loadingCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#navCtrl">navCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#navParams">navParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#searchText">searchText</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#shops">shops</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#doRefresh">doRefresh</a>
+                            </li>
+                            <li>
+                                <a href="#getFilteredList">getFilteredList</a>
+                            </li>
+                            <li>
+                                <a href="#goToLoyaltyPage">goToLoyaltyPage</a>
+                            </li>
+                            <li>
+                                <a href="#goToShopDetail">goToShopDetail</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewDidLoad">ionViewDidLoad</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(navCtrl: NavController, navParams: NavParams, shopApi: <a href="../injectables/ShopApiProvider.html">ShopApiProvider</a>, loadingCtrl: LoadingController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/pages/list/list.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>navCtrl</td>
+                                                  
+                                                        <td>
+                                                                    <code>NavController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>navParams</td>
+                                                  
+                                                        <td>
+                                                                    <code>NavParams</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>shopApi</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ShopApiProvider.html" target="_self" >ShopApiProvider</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loadingCtrl</td>
+                                                  
+                                                        <td>
+                                                                    <code>LoadingController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="doRefresh"></a>
+                        <span class="name">
+                            <b>
+                            doRefresh
+                            </b>
+                            <a href="#doRefresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>doRefresh(refresher: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/pages/list/list.ts:69</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>refresher</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFilteredList"></a>
+                        <span class="name">
+                            <b>
+                            getFilteredList
+                            </b>
+                            <a href="#getFilteredList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFilteredList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/pages/list/list.ts:78</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="goToLoyaltyPage"></a>
+                        <span class="name">
+                            <b>
+                            goToLoyaltyPage
+                            </b>
+                            <a href="#goToLoyaltyPage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>goToLoyaltyPage()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/pages/list/list.ts:119</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="goToShopDetail"></a>
+                        <span class="name">
+                            <b>
+                            goToShopDetail
+                            </b>
+                            <a href="#goToShopDetail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>goToShopDetail(shopId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/pages/list/list.ts:115</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>shopId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ionViewDidLoad"></a>
+                        <span class="name">
+                            <b>
+                            ionViewDidLoad
+                            </b>
+                            <a href="#ionViewDidLoad"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ionViewDidLoad()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/pages/list/list.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allShops"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            allShops
+                            </b>
+                            <a href="#allShops"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>allShops:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/pages/list/list.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="count"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            count
+                            </b>
+                            <a href="#count"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>count:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/pages/list/list.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="favouriteShops"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            favouriteShops
+                            </b>
+                            <a href="#favouriteShops"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>favouriteShops:     <code>Array&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/pages/list/list.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loadingCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            loadingCtrl
+                            </b>
+                            <a href="#loadingCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>loadingCtrl:     <code>LoadingController</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>LoadingController</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/pages/list/list.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="navCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            navCtrl
+                            </b>
+                            <a href="#navCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>navCtrl:     <code>NavController</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>NavController</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/pages/list/list.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="navParams"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            navParams
+                            </b>
+                            <a href="#navParams"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>navParams:     <code>NavParams</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>NavParams</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/pages/list/list.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchText"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            searchText
+                            </b>
+                            <a href="#searchText"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>searchText:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/pages/list/list.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shops"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            shops
+                            </b>
+                            <a href="#shops"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>shops:     <code>Array&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/pages/list/list.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { NavController, NavParams, LoadingController, reorderArray } from &#x27;ionic-angular&#x27;;
+import { ShopPage } from &#x27;../shop/shop&#x27;;
+import { ShopApiProvider } from &#x27;../../providers/shop-api/shop-api&#x27;;
+//import { Shop } from &#x27;../../models/shop.interface&#x27;;
+//import { Observable } from &#x27;rxjs/Observable&#x27;;
+import { AddLoyaltyCardPage } from &#x27;../add-loyalty-card/add-loyalty-card&#x27;;
+import { trigger, style, animate, transition } from &#x27;@angular/animations&#x27;;
+
+
+@Component({
+  selector: &#x27;page-list&#x27;,
+  templateUrl: &#x27;list.html&#x27;,
+  animations: [ // Slide items up from the bottom of screen.
+        trigger(&#x27;itemState&#x27;, [
+            transition(&#x27;void &#x3D;&gt; *&#x27;, [
+                style({transform: &#x27;translateY(100%)&#x27;}),
+                animate(&#x27;0.6s ease-in-out&#x27;)
+            ]),
+            transition(&#x27;* &#x3D;&gt; void&#x27;, [
+                animate(&#x27;0.6s ease-in-out&#x27;, style({transform: &#x27;translateY(100%)&#x27;}))
+            ])
+        ])
+    ]
+})
+
+export class ListPage {
+
+  //public shops: Observable&lt;Shop[]&gt;; Use Observable for firestore.
+  public shops: Array&lt;any&gt;;
+  public count: number;
+  public searchText: string;
+  public allShops: any;
+  public favouriteShops: Array&lt;any&gt;;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+   private shopApi: ShopApiProvider, public loadingCtrl: LoadingController) {
+
+  }
+
+  ionViewDidLoad(){ // when page is loaded, presents loading controller, if content ready to be displayed then the loadingCtrl is dismissed.
+    console.log(&#x27;hello&#x27;);
+    const loader &#x3D; this.loadingCtrl.create({
+      content: &#x27;Loading Loyalty Cards&#x27;,
+      duration: 3000
+    });
+    loader.present();
+
+// OrderByChild() orders the shops by lowest to highest loyaltyPoints,
+// this order is then reversed in the html - line 29. This orders the stores most popular with that user.
+    this.shopApi.getShopList().orderByChild(&#x27;loyaltyBalance&#x27;).on(&quot;value&quot;, shopListSnapshot &#x3D;&gt; {
+      this.shops &#x3D; [];
+      shopListSnapshot.forEach(snap &#x3D;&gt; {
+        this.shops.push({
+          id: snap.key,
+          shopName: snap.val().shopName,
+          loyaltyBalance: snap.val().loyaltyBalance,
+          email: snap.val().email,
+          about: snap.val().about
+        });
+        return false;
+      });
+      this.count &#x3D; this.shops.length; // count the no. of cards.
+      loader.dismiss();
+    });
+    //this.shops &#x3D; this.shopApi.getShopList().valueChanges(); // firestore
+    }
+
+    doRefresh(refresher){ // ion-refresher - slide down and refresh page in case items need updating.
+      setTimeout(() &#x3D;&gt; {
+      this.ionViewDidLoad();
+      refresher.complete();
+    }, 2000);
+  }
+
+
+
+    getFilteredList(){ // Serchbar Filters list based on text input, when user hits the x(cancel) the shopList array is reloaded.
+      let searchText &#x3D;  this.searchText.toLowerCase();
+      let filteredShops &#x3D; [];
+
+        if(searchText &amp;&amp; searchText.trim() !&#x3D; &#x27;&#x27;){
+        filteredShops &#x3D; this.shops.filter((s) &#x3D;&gt; {
+          return (s.shopName.toLowerCase().indexOf(searchText)) &gt; -1});
+          this.shops &#x3D; filteredShops;
+
+        }
+        else {
+          return this.shopApi.getShopList().orderByChild(&#x27;loyaltyBalance&#x27;).on(&quot;value&quot;, shopListSnapshot &#x3D;&gt; {
+              this.shops &#x3D; [];
+              shopListSnapshot.forEach(snap &#x3D;&gt; {
+                this.shops.push({
+                  id: snap.key,
+                  shopName: snap.val().shopName,
+                  loyaltyBalance: snap.val().loyaltyBalance,
+                  email: snap.val().email,
+                  about: snap.val().about
+                });
+                return false;
+              });
+            });
+        }
+        console.log(this.searchText);
+
+      console.log(this.shops);
+    }
+
+    // reOrderItem(indexes){ // Allows the user to reorder the array of loyalty Cards to their liking.
+    //   // i.e - Their favourite ones can be dragged to the top.
+    //   this.shops &#x3D; reorderArray(this.shops, indexes);
+    //   this.shopApi.updateShopList(indexes);
+    //   console.log(this.shops);
+    // }
+
+    goToShopDetail(shopId: string): void {
+      this.navCtrl.push(ShopPage, {shopId: shopId});
+    }
+
+    goToLoyaltyPage(){
+      this.navCtrl.push(AddLoyaltyCardPage);
+    }
+  }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-navbar color&#x3D;&quot;primary&quot;&gt;
+    &lt;button ion-button menuToggle&gt;
+      &lt;ion-icon name&#x3D;&quot;menu&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+    &lt;ion-title&gt;Loyalty Cards&lt;/ion-title&gt;
+    &lt;ion-buttons end&gt;
+      &lt;button ion-button icon-only (click)&#x3D;&quot;goToLoyaltyPage()&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;add&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-navbar&gt;
+&lt;/ion-header&gt;
+
+
+&lt;ion-content&gt;
+  &lt;ion-refresher (ionRefresh)&#x3D;&quot;doRefresh($event)&quot;&gt;
+    &lt;ion-refresher-content
+    pullingIcon&#x3D;&quot;arrow-round-down&quot;
+    pullingText&#x3D;&quot;Pull To Refresh&quot;
+    refreshingSpinner&#x3D;&quot;crescent&quot;
+    refreshingText&#x3D;&quot;Updating Cards. . .&quot;&gt;
+    &lt;/ion-refresher-content&gt;
+  &lt;/ion-refresher&gt;
+  &lt;ion-searchbar [(ngModel)]&#x3D;&quot;searchText&quot; (ionInput)&#x3D;&quot;getFilteredList()&quot;&gt;&lt;/ion-searchbar&gt;
+
+  &lt;p class&#x3D;&quot;countHeader&quot;&gt; Loyalty Cards ({{count}}) &lt;/p&gt;
+
+  &lt;!-- code for dragging items around --&gt;
+&lt;!-- (ionItemReorder)&#x3D;&quot;reOrderItem($event)&quot; --&gt;
+  &lt;ion-list [@itemState]&gt;
+    &lt;ion-item-sliding *ngFor&#x3D;&quot;let shop of shops?.slice().reverse()&quot;&gt;
+
+    &lt;button ion-item  (click)&#x3D;&quot;goToShopDetail(shop.id)&quot;&gt;
+    &lt;h2&gt; {{ shop.shopName }} &lt;/h2&gt;
+    &lt;h4 style&#x3D;&quot;color: green;&quot;&gt; Loyalty Balance: &lt;ion-badge color&#x3D;&quot;{{shop.loyaltyBalance &lt; 500 ? &#x27;amber&#x27; : &#x27;secondary&#x27;}}&quot;&gt;{{shop.loyaltyBalance | number: fractionSize}}&lt;/ion-badge&gt; &lt;/h4&gt;
+
+    &lt;/button&gt;
+    &lt;ion-item-options side&#x3D;&quot;left&quot;&gt;
+      &lt;button ion-button icon-only color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;favouriteLoyaltyCard()&quot;&gt;
+        &lt;ion-icon name&#x3D;&quot;heart&quot;&gt;&lt;/ion-icon&gt;
+        Favourite
+      &lt;/button&gt;
+    &lt;/ion-item-options&gt;
+    &lt;/ion-item-sliding&gt;
+  &lt;/ion-list&gt;
+
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-navbar color="primary">    <button ion-button menuToggle>      <ion-icon name="menu"></ion-icon>    </button>    <ion-title>Loyalty Cards</ion-title>    <ion-buttons end>      <button ion-button icon-only (click)="goToLoyaltyPage()">      <ion-icon name="add"></ion-icon>      </button>    </ion-buttons>  </ion-navbar></ion-header><ion-content>  <ion-refresher (ionRefresh)="doRefresh($event)">    <ion-refresher-content    pullingIcon="arrow-round-down"    pullingText="Pull To Refresh"    refreshingSpinner="crescent"    refreshingText="Updating Cards. . .">    </ion-refresher-content>  </ion-refresher>  <ion-searchbar [(ngModel)]="searchText" (ionInput)="getFilteredList()"></ion-searchbar>  <p class="countHeader"> Loyalty Cards ({{count}}) </p>  <!-- code for dragging items around --><!-- (ionItemReorder)="reOrderItem($event)" -->  <ion-list [@itemState]>    <ion-item-sliding *ngFor="let shop of shops?.slice().reverse()">    <button ion-item  (click)="goToShopDetail(shop.id)">    <h2> {{ shop.shopName }} </h2>    <h4 style="color: green;"> Loyalty Balance: <ion-badge color="{{shop.loyaltyBalance < 500 ? \'amber\' : \'secondary\'}}">{{shop.loyaltyBalance | number: fractionSize}}</ion-badge> </h4>    </button>    <ion-item-options side="left">      <button ion-button icon-only color="primary" (click)="favouriteLoyaltyCard()">        <ion-icon name="heart"></ion-icon>        Favourite      </button>    </ion-item-options>    </ion-item-sliding>  </ion-list></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddLoyaltyCardPage', 'selector': 'page-add-loyalty-card'},{'name': 'FlashCardComponent', 'selector': 'flash-card'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'ListPage', 'selector': 'page-list'},{'name': 'LoginPage', 'selector': 'page-login'},{'name': 'MapPage', 'selector': 'page-map'},{'name': 'MyApp', 'selector': ''},{'name': 'ProductPage', 'selector': 'page-product'},{'name': 'ProfilePage', 'selector': 'page-profile'},{'name': 'ResetPasswordPage', 'selector': 'page-reset-password'},{'name': 'ShopPage', 'selector': 'page-shop'},{'name': 'SignUpPage', 'selector': 'page-sign-up'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ListPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ListPage.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

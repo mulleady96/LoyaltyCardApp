@@ -40,27 +40,46 @@ export class ProductPage {
   //  ];
   }
 
-  ionViewDidLoad(shopId: string) {
-    console.log('ionViewDidLoad ProductPage');
-
-    }
+  // ionViewDidLoad(shopId: string) {
+  //   console.log('ionViewDidLoad ProductPage');
+  //
+  //   }
 
   redeemProduct(){ // Use your LP Bal to redeem a free product.
-    this.shopApi.redeemProduct(this.currentShop.id)
-    .then(() => {
+    // -100 points from the users lP for that store.
+
+      if(this.currentShop.loyaltyBalance <= 0){
+        this.shopApi.redeemProduct(this.currentShop.id);
+        let toast1 = this.toastCtrl.create({ // Notify user with information message, that they do not have a min of 100 points
+          message: 'You Do Not Have Enough Points',
+          duration: 3000,
+          showCloseButton: true,
+          closeButtonText: 'OK!',
+          dismissOnPageChange: true,
+          position: 'bottom'
+        });
+        toast1.onDidDismiss(() => {
+          console.log('Dismissed toast');
+        });
+        toast1.present();
+      }
+
+      else if(this.currentShop.loyaltyBalance > 0){
+        this.shopApi.redeemProduct(this.currentShop.id);
       let toast = this.toastCtrl.create({ // Notify user with success message
-        message: 'Redeemed Free Product -100 LoyaltyPoints',
+        message: 'Redeemed Free Product -100 Loyalty Points',
         duration: 3000,
+        showCloseButton: true,
+        closeButtonText: 'X',
+        dismissOnPageChange: true,
         position: 'bottom'
       });
       toast.onDidDismiss(() => {
         console.log('Dismissed toast');
       });
       toast.present();
-    })
-  }
-
-
+      }
+    }
 
 
 }

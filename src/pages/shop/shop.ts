@@ -29,6 +29,7 @@ export class ShopPage {
   //public shop: Shop;
   public currentShop: any = {};
   public product: string = '';
+  public purchasesCount: number;
   public points: number;
   public recentPurchases: Array<any>;
   public lastPurchases: Array<any>;
@@ -37,8 +38,8 @@ export class ShopPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public shopApi: ShopApiProvider) {
-    
-    this.shopApi.getShopDetail(this.navParams.get("shopId")) // clicking on a shop, pass the correct id into the shop view. showing the correct index of the shopList array.
+
+    this.shopApi.getShopDetail(this.navParams.get("shopId")) /** clicking on a shop, pass the correct id into the shop view. showing the correct index of the shopList array.*/
     .on("value", shopSnapshot => {
       this.currentShop = shopSnapshot.val();
       this.currentShop.id = shopSnapshot.key;
@@ -62,8 +63,8 @@ export class ShopPage {
   }
 
 
-  getRecentPurchases(shopId: string){ // Shows the list of recentPurchases in the html view, a shallow array is created with slice() and this array is reversed
-    // to reflect a most recent activity. without harming the original data source.
+  getRecentPurchases(shopId: string){ /** Shows the list of recentPurchases in the html view, this array is reversed
+     to reflect a most recent activity. without harming the original data source.*/
     this.shopApi.getRecentPurchases(this.navParams.get("shopId")).orderByChild('createdDate').on("value", purchasesSnapshot => {
       this.recentPurchases = [];
       purchasesSnapshot.forEach(snap => {
@@ -74,6 +75,7 @@ export class ShopPage {
         });
         return false;
       });
+      this.purchasesCount = this.recentPurchases.length; // count the number of purchases.
     });
   }
 

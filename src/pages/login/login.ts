@@ -80,14 +80,14 @@ export class LoginPage {
   }
 }
 
-  googleLogin(){
+  googleLogin(){ // Login using github account credentials.
   this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
   .then(() => {
     this.navCtrl.setRoot(HomePage);
   });
 }
 
-  gitHubLogin(){
+  gitHubLogin(){ // Login using google account credentials.
   this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
   .then(() => {
     this.navCtrl.setRoot(HomePage);
