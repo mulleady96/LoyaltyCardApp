@@ -13,6 +13,7 @@ export class ProductPage {
 
   public images: any = [];
   public currentShop: any = {};
+  public result: number;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -48,10 +49,13 @@ export class ProductPage {
   redeemProduct(){ // Use your LP Bal to redeem a free product.
     // -100 points from the users lP for that store.
 
-      if(this.currentShop.loyaltyBalance <= 0){
-        this.shopApi.redeemProduct(this.currentShop.id);
+      if(this.currentShop.loyaltyBalance <= 0 || this.currentShop.loyaltyBalance < 100){
+      //  this.shopApi.redeemProduct(this.currentShop.id);
+        this.result = 100 - this.currentShop.loyaltyBalance;
+        //console.log(this.result);
+
         let toast1 = this.toastCtrl.create({ // Notify user with information message, that they do not have a min of 100 points
-          message: 'You Do Not Have Enough Points',
+          message: 'You Need ' + this.result + ' More Points', //
           duration: 3000,
           showCloseButton: true,
           closeButtonText: 'OK!',
@@ -64,7 +68,7 @@ export class ProductPage {
         toast1.present();
       }
 
-      else if(this.currentShop.loyaltyBalance > 0){
+      else if(this.currentShop.loyaltyBalance >= 100){
         this.shopApi.redeemProduct(this.currentShop.id);
       let toast = this.toastCtrl.create({ // Notify user with success message
         message: 'Redeemed Free Product -100 Loyalty Points',

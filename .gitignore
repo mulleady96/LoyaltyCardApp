@@ -33,3 +33,5 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+src/assets/imgs/VSCodeUserSetup-x64-1.27.2.exe
+src/app/credentials.ts

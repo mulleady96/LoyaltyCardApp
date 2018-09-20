@@ -41,7 +41,7 @@ export class ShopApiProvider {
   updateShopList(indexes): Promise<any> { // Persists the reordering of shopList array
     return this.shopListRef.update({ indexes });
   }
-
+  
   getShopDetail(shopId: string): firebase.database.Reference { // Retrive details about the shop
     return this.shopListRef.child(`${shopId}`);
   }
@@ -70,7 +70,7 @@ export class ShopApiProvider {
   redeemProduct(shopId: string){ /** Click Redeem button in product html will enact this transaction.*/
     return this.shopListRef.child(`${shopId}`).transaction(event => {
     // Simple check to see if user has enough points to perform transaction.
-    if(event.loyaltyBalance <= 0){
+    if(event.loyaltyBalance <= 0 && event.loyaltyBalance < 100){
       console.log('You do not have enough points');
     }
     else {
@@ -80,7 +80,6 @@ export class ShopApiProvider {
       }
     });
   }
-
 
 
   createLoyaltyCard(shopName: string, loyaltyBalance: number,

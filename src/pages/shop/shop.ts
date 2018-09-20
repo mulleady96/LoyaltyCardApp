@@ -28,7 +28,7 @@ export class ShopPage {
 
   //public shop: Shop;
   public currentShop: any = {};
-  public product: string = '';
+  public product: string = ''; // items bought by customers.
   public purchasesCount: number;
   public points: number;
   public recentPurchases: Array<any>;
@@ -92,7 +92,6 @@ export class ShopPage {
          return false;
        });
      });
-
    }
 
   goToProductPage(shopId: string): void{ // Pass in current shop id to the products page for transaction on the correct shop data.

@@ -6,3 +6,4 @@ export var config = {
      storageBucket: "ionicmap-8b1d0.appspot.com",
      messagingSenderId: "943024581452"
   };
+  //ignore 
