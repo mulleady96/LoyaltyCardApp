@@ -1,6 +1,6 @@
 # LoyaltyCardApp
 
-# Ionic hybrid application designed to help customers store their loyalty cards on one device.
+# Ionic hybrid application designed to help customers store their loyalty cards on *Any* device, because this is a PWA.
 * Firebase used as the backend, hosting, storage, and realtime DB are used.
 * Authentication provided through email/password, Google and Github logins.
 * Unique user profiles.
