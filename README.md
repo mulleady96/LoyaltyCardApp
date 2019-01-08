@@ -6,6 +6,7 @@
 * Unique user profiles.
 * Google Maps enabled, with geolocation.
 * QR Barcode Scanner.
+* Angular Animations.
 * Reset password functionality enabled, by means of a resetPasswordEmail.
 
 * App is available at: https://ionicmap-8b1d0.firebaseapp.com/
