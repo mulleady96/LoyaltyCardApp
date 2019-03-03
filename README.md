@@ -15,6 +15,8 @@
 1. Clone repository from github.
 2. Ensure you have nodeJS installed on your machine.
 3. Run npm i - To install all app dependencies.
-4. npm run compodoc - To view the entire documentation for the project, including the app structure/eco-system.
-5. Run ionic serve - To serve the app to a localhost.
+4. npm i firebase - To Install firebase packages/code lint.
+5. npm i angularfire - Required for Google OAuth.
+6. npm run compodoc - To view the entire documentation for the project, including the app structure/eco-system.
+7. Run ionic serve - To serve the app to a localhost.
 
