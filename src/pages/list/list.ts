@@ -31,7 +31,13 @@ export class ListPage {
   public count: number;
   public searchText: string;
   public allShops: any;
+  public hideDiv: boolean;
+  public hideDiv2: boolean; // hide second list
+
   public favouriteShops: Array<any>;
+  public isListOfShops = false; // boolean control - if there is no list of shops, show other content.
+
+  stores: string = 'All'; // ion-segment control -> using ngSwitch to show 2 different lists
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
    private shopApi: ShopApiProvider, public loadingCtrl: LoadingController) {
@@ -46,6 +52,8 @@ export class ListPage {
     });
     loader.present();
 
+    // Get Favourites
+    
 // OrderByChild() orders the shops by lowest to highest loyaltyPoints,
 // this order is then reversed in the html - line 29. This orders the stores most popular with that user.
     this.shopApi.getShopList().orderByChild('loyaltyBalance').on("value", shopListSnapshot => {
@@ -61,6 +69,7 @@ export class ListPage {
         return false;
       });
       this.count = this.shops.length; // count the no. of cards.
+      this.hideDiv = !this.hideDiv;
       loader.dismiss();
     });
     //this.shops = this.shopApi.getShopList().valueChanges(); // firestore
@@ -74,14 +83,13 @@ export class ListPage {
   }
 
 
-
     getFilteredList(){ // Serchbar Filters list based on text input, when user hits the x(cancel) the shopList array is reloaded.
       let searchText =  this.searchText.toLowerCase();
       let filteredShops = [];
 
         if(searchText && searchText.trim() != ''){
         filteredShops = this.shops.filter((s) => {
-          return (s.shopName.toLowerCase().indexOf(searchText)) > -1});
+          return (s.shopName.toLowerCase().indexOf(searchText.toLowerCase())) > -1});
           this.shops = filteredShops;
 
         }
@@ -98,6 +106,7 @@ export class ListPage {
                 });
                 return false;
               });
+              this.count = this.shops.length;
             });
         }
         console.log(this.searchText);
@@ -111,6 +120,40 @@ export class ListPage {
     //   this.shopApi.updateShopList(indexes);
     //   console.log(this.shops);
     // }
+
+    getFavouriteList() {
+      // order by favourites val, if true send it to the favourites array.
+      // ** Only display the stores with val set to true. 
+
+      this.shopApi.getShopList().orderByChild('favourite').equalTo(true).on("value", favListSnapshot => {
+        this.favouriteShops = [];
+        favListSnapshot.forEach(snap => {
+          this.favouriteShops.push({
+            id: snap.key,
+            shopName: snap.val().shopName,
+            loyaltyBalance: snap.val().loyaltyBalance,
+            email: snap.val().email,
+            about: snap.val().about,
+            favourite: snap.val().favourite
+          });
+          return false;
+        });
+      this.count = this.favouriteShops.length; // count the no. of cards.
+      this.hideDiv2 = !this.hideDiv2;
+        console.log(this.count);
+        
+      });
+      console.log(this.favouriteShops);
+      
+    }
+
+    updateFavourite(shopId){
+      this.shopApi.updateFavourites(shopId);
+    }
+
+    removeFavourite(shopId){
+      this.shopApi.removeFavourites(shopId);
+    }
 
     goToShopDetail(shopId: string): void {
       this.navCtrl.push(ShopPage, {shopId: shopId});

@@ -27,6 +27,8 @@ public barcodeScanner: BarcodeScanner, public toastCtrl: ToastController) {
       loyaltyBalance: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
       about: ['', Validators.required],
+      favourite: [Boolean, Validators.required],
+
     });
   }
 
@@ -50,9 +52,10 @@ public barcodeScanner: BarcodeScanner, public toastCtrl: ToastController) {
     const loyaltyBalance = this.createLoyaltyForm.value.loyaltyBalance;
     const email = this.createLoyaltyForm.value.email;
     const about = this.createLoyaltyForm.value.about;
+    const favourite = false;
 
 
-    this.shopApi.createLoyaltyCard(shopName, loyaltyBalance, email, about)
+    this.shopApi.createLoyaltyCard(shopName, loyaltyBalance, email, about, favourite)
     .then( // Passing this form data to the shopApi provider.
       () => {
         loading.dismiss().then(() => { // success = return to previous home page

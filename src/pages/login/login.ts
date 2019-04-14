@@ -18,6 +18,7 @@ export class LoginPage {
 
   public loginForm: FormGroup;
   public loading: Loading;
+  public formShow: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingCtrl: LoadingController,
@@ -43,6 +44,10 @@ export class LoginPage {
 
   goToSignup(){
     this.navCtrl.push(SignUpPage);
+  }
+
+  formExpand(){
+    this.formShow = !this.formShow;
   }
 
   goToResetPassword(){
@@ -80,14 +85,14 @@ export class LoginPage {
   }
 }
 
-  googleLogin(){ // Login using github account credentials.
+  googleLogin(){ // Login using Google account credentials.
   this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
   .then(() => {
     this.navCtrl.setRoot(HomePage);
   });
 }
 
-  gitHubLogin(){ // Login using google account credentials.
+  gitHubLogin(){ // Login using Github account credentials.
   this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
   .then(() => {
     this.navCtrl.setRoot(HomePage);

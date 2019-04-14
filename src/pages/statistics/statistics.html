@@ -1,0 +1,75 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Statistics</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<!-- <ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+  <ion-toolbar>
+  <ion-segment color="secondary" [(ngModel)]="divisionFilter" (ionChange)="filterDivision($event)">
+    <ion-segment-button value="division"> Division </ion-segment-button>
+    <ion-segment-button value="all"> All </ion-segment-button>
+  </ion-segment>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+<ion-list  *ngFor="let store of shops">
+
+  <!-- <ion-item-divider color="secondary" *ngFor="let store of shops">
+     {{store.shopName}}
+   </ion-item-divider> -->
+
+<ion-item>
+  <ion-row>
+    <ion-col>
+      <h2 ion-text color="primary">
+        {{store.shopName}} Name
+      </h2>
+    </ion-col>
+  </ion-row>
+
+
+
+
+  <ion-grid no-padding>
+  <ion-row text-center>
+    <ion-col>
+      Total Purchases
+    </ion-col>
+    <ion-col>
+      Prod Redeemed
+    </ion-col>
+    <ion-col>
+      Loyalty Points
+    </ion-col>
+  </ion-row>
+
+  <ion-row text-center>
+    <ion-col>
+      {{purchasesCount}}
+    </ion-col>
+    <ion-col>
+    5
+    </ion-col>
+    <ion-col>
+    {{store.loyaltyBalance}}
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+</ion-item>
+
+</ion-list>
+
+</ion-content>

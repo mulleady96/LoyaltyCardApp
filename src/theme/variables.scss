@@ -36,12 +36,31 @@ $app-direction: ltr;
 $colors: (
   primary:    #35CFE6,
   secondary:  #32db64,
-  danger:     #f53d3d,
+  danger:     #eb4d4b,
   light:      #f4f4f4,
   dark:       #222,
-  amber:      #FEAC1E
+  amber:      #FEAC1E,
+  light-yellow: #f6e58d,
+  light-blue: #7ed6df,
+  light-orange: #ffbe76,
+  grey:        #535c68,
+  navy:        #30336b,
+  turqouise:   #22a6b3,
+  purple:      #686de0,
+  light-grey : #c7ecee
 );
 
+
+p {
+  font-size: 0.8em;
+  font-family: 'Montserrat';
+  color: #6e6e6e;
+}
+
+h2 {
+  font-family: 'Montserrat';
+  color: #6e6e6e;
+}
 
 // App iOS Variables
 // --------------------------------------------------

@@ -16,6 +16,17 @@ page-list {
       color: #fff;
     }
 
+    .Nopurchases {
+      font-size: 3em;
+      font-style: oblique;
+      color: grey;
+    }
+
+    .buttonStyling {
+      display: flex;
+      justify-content: flex-start;
+    }
+
     .card-subtitle {
       font-size: 1.0em;
       position: absolute;
@@ -25,10 +36,21 @@ page-list {
     }
 }
 
+  .latestActivityStyle {
+    padding-left: 55%;
+    font-style: oblique;
+    font-size: 0.75em;
+  }
+
   .countHeader {
   font-size: 1em;
   font-style: oblique;
   color: grey;
   text-align: center;
+  }
+
+  h4 {
+    font-family: 'Montserrat';
+    color: #59a343;
   }
 }

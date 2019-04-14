@@ -9,6 +9,8 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { config } from './credentials';
 import { ProfilePage } from '../pages/profile/profile';
+import { StatisticsPage } from '../pages/statistics/statistics';
+import { CatalogsPage } from '../pages/catalogs/catalogs';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,10 +30,12 @@ export class MyApp {
     this.pages = [
       { title: 'Home', icon: 'home', component: HomePage },
       { title: 'Loyalty Cards', icon: 'card', component: ListPage },
-      { title: 'Profile', icon: 'person', component: ProfilePage }
+      { title: 'Profile', icon: 'person', component: ProfilePage },
+      { title: 'Statistics', icon: 'stats', component: StatisticsPage },
+      { title: 'Catalogs', icon: 'book', component: CatalogsPage },
+
     ];
     this.activePage = this.pages[0];
-
   }
 
   initializeApp() {

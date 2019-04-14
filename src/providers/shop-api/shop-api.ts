@@ -20,6 +20,7 @@ export class ShopApiProvider {
   public allShops: any;
   public productRef: firebase.database.Reference;
   public shops = [];
+  public favourites = {};
 
   constructor(public db: AngularFireDatabase) {
     //console.log('Hello ShopApiProvider Provider');
@@ -42,18 +43,47 @@ export class ShopApiProvider {
     return this.shopListRef.update({ indexes });
   }
   
-  getShopDetail(shopId: string): firebase.database.Reference { // Retrive details about the shop
+  getShopDetail(shopId: string): firebase.database.Reference { // Retrieve details about the shop
     return this.shopListRef.child(`${shopId}`);
   }
 
-  getRecentPurchases(shopId: string): firebase.database.Reference { // Retieve the inner array within the shopDetail.
+  getRecentPurchases(shopId: string): firebase.database.Reference { // Retrieve the inner array within the shopDetail.
     return this.shopListRef.child(`${shopId}/recentPurchases`);
   }
 
   // //TODO:
-  // getFavouriteShops(shopId: string): firebase.database.Reference {
-  // return this.shopListRef.child(`/favourites`);
+  // addFavouriteShops(shopId: string): PromiseLike<any> {
+  // return this.shopListRef.child(`/favourites/${shopId}`).set({
+  //   shopId, 
+  //   createdDate: Date()
+  // });
   // }
+
+  // // Receive the FAvourites array.
+  // getFavourites(shopId: string): firebase.database.Reference{
+  //   return this.shopListRef.child(`/favourites/${shopId}`);
+  // }
+
+
+  // Boolean value favourite - update favourite value in DB entry.
+  updateFavourites(shopId){
+    // update the val favourites to true.
+    return this.shopListRef.child(`${shopId}`).transaction(event => {
+      event.favourite = true;
+      return event;
+    });
+  }
+
+  // Remove Favourites
+  removeFavourites(shopId){
+    // update the val favourites to true.
+    return this.shopListRef.child(`${shopId}`).transaction(event => {
+      event.favourite = false;
+      return event;
+    });
+  }
+
+
 
   addPurchase(product: string, shopId: string): PromiseLike<any>{ /** Add an item that was purchased, => increases loyaltybalance by 25 Points.*/
     return this.shopListRef.child(`${shopId}/recentPurchases`)
@@ -83,13 +113,14 @@ export class ShopApiProvider {
 
 
   createLoyaltyCard(shopName: string, loyaltyBalance: number,
-            email: string, about: string): firebase.database.ThenableReference {//Add new card to the top most array. i.e. the shopList array.
+            email: string, about: string, favourite: boolean): firebase.database.ThenableReference {//Add new card to the top most array. i.e. the shopList array.
 
     return this.shopListRef.push({
       shopName:  shopName,
       loyaltyBalance: loyaltyBalance * 1,
       email:  email,
-      about: about
+      about: about,
+      favourite: favourite
     });
   }
 

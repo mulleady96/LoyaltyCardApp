@@ -75,6 +75,7 @@ export class ShopPage {
         });
         return false;
       });
+      this.recentPurchases.reverse();
       this.purchasesCount = this.recentPurchases.length; // count the number of purchases.
     });
   }

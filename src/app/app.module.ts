@@ -11,6 +11,10 @@ import { config } from './credentials';
 import { AgmCoreModule } from '@agm/core';
 import { Camera } from '@ionic-native/camera';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DocumentViewer } from '@ionic-native/document-viewer';
+import { File } from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,6 +34,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { MapPage } from '../pages/map/map';
 import { Geolocation } from '@ionic-native/geolocation';
 import { FlashCardComponent } from '../components/flash-card/flash-card';
+import { StatisticsPage } from '../pages/statistics/statistics';
+import { CatalogsPage } from '../pages/catalogs/catalogs';
 
 
 @NgModule({
@@ -37,10 +43,12 @@ import { FlashCardComponent } from '../components/flash-card/flash-card';
     MyApp,
     HomePage,
     ListPage,
+    CatalogsPage,
     ShopPage,
     LoginPage,
     MapPage,
     SignUpPage,
+    StatisticsPage,
     ProfilePage,
     ProductPage,
     ResetPasswordPage,
@@ -60,6 +68,7 @@ import { FlashCardComponent } from '../components/flash-card/flash-card';
   entryComponents: [
     MyApp,
     HomePage,
+    CatalogsPage,
     ListPage,
     ShopPage,
     LoginPage,
@@ -67,6 +76,7 @@ import { FlashCardComponent } from '../components/flash-card/flash-card';
     ProductPage,
     ProfilePage,
     SignUpPage,
+    StatisticsPage,
     ResetPasswordPage,
     AddLoyaltyCardPage,
   ],
@@ -79,6 +89,9 @@ import { FlashCardComponent } from '../components/flash-card/flash-card';
     BarcodeScanner,
     AngularFireDatabase,
     Geolocation,
+    File,
+    FileTransfer,
+    DocumentViewer,
     Camera,
     AuthProvider,
     ProfileProvider

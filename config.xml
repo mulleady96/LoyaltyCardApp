@@ -89,4 +89,7 @@
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <engine name="ios" spec="4.5.5" />
     <allow-navigation href="http://192.168.1.11:8100" />
+    <plugin name="cordova-plugin-document-viewer" spec="^0.9.10" />
+    <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
 </widget>

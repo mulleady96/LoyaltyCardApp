@@ -3,10 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Loyalty Cards</ion-title>
+    <ion-title>Stores</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="goToLoyaltyPage()">
-      <ion-icon name="add"></ion-icon>
+        <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -15,34 +15,82 @@
 
 <ion-content>
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-    pullingIcon="arrow-round-down"
-    pullingText="Pull To Refresh"
-    refreshingSpinner="crescent"
-    refreshingText="Updating Cards. . .">
+    <ion-refresher-content pullingIcon="arrow-round-down" pullingText="Pull To Refresh" refreshingSpinner="crescent"
+      refreshingText="Updating Stores. . .">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-searchbar [(ngModel)]="searchText" (ionInput)="getFilteredList()"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchText" (ionInput)="getFilteredList(searchText)"></ion-searchbar>
 
   <p class="countHeader"> Loyalty Cards ({{count}}) </p>
 
   <!-- code for dragging items around -->
-<!-- (ionItemReorder)="reOrderItem($event)" -->
-  <ion-list [@itemState]>
-    <ion-item-sliding *ngFor="let shop of shops?.slice().reverse()">
+  <!-- (ionItemReorder)="reOrderItem($event)" -->
+  <ion-segment [(ngModel)]="stores">
+    <ion-segment-button value="All" (click)="ionViewDidLoad()">
+      <ion-icon name="book"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button (click)="getFavouriteList()" value="Favourites">
+      <ion-icon name="heart"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 
-    <button ion-item  (click)="goToShopDetail(shop.id)">
-    <h2> {{ shop.shopName }} </h2>
-    <h4 style="color: green;"> Loyalty Balance: <ion-badge color="{{shop.loyaltyBalance < 500 ? 'amber' : 'secondary'}}">{{shop.loyaltyBalance | number: fractionSize}}</ion-badge> </h4>
 
-    </button>
-    <ion-item-options side="left">
-      <button ion-button icon-only color="primary" (click)="favouriteLoyaltyCard()">
-        <ion-icon name="heart"></ion-icon>
-        Favourite
-      </button>
-    </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+  <br>
+  <div [ngSwitch]="stores">
+    <ion-list [@itemState] *ngSwitchDefault>
+      <h2>All</h2>
+      <ion-item-sliding *ngFor="let shop of shops?.slice().reverse()">
+
+        <button ion-item (click)="goToShopDetail(shop.id)">
+          <ion-avatar item-start>
+            <img src="https://picsum.photos/200/300/?random" alt="Store Logo">
+          </ion-avatar>
+          <h2> {{ shop.shopName }} </h2>
+          <h4 style="color: green;"> Loyalty Balance: <ion-badge
+              color="{{shop.loyaltyBalance < 500 ? 'amber' : 'secondary'}}">
+              {{shop.loyaltyBalance | number: fractionSize}}
+            </ion-badge>
+          </h4>
+          <!-- <p class="latestActivityStyle"> Latest Activity: </p> -->
+        </button>
+        <ion-item-options side="left">
+          <button ion-button icon-only color="primary" (click)="updateFavourite(shop.id)">
+            <ion-icon name="heart"></ion-icon>
+            Favourite
+          </button>
+        </ion-item-options>
+        <!-- <p text-wrap class="Nopurchases" *ngIf="shops.length <= 0"> -->
+        <!-- <ion-icon color="primary" name="alert"></ion-icon>No Loyalty Cards.</p> -->
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-list [@itemState] *ngSwitchCase="'Favourites'">
+      <h2>Favourites</h2>
+      <ion-item-sliding *ngFor="let fav of favouriteShops?.slice().reverse()">
+
+        <button ion-item (click)="goToShopDetail(fav.id)">
+          <ion-avatar item-start>
+            <img src="https://picsum.photos/200/300/?random" alt="Store Logo">
+          </ion-avatar>
+          <h2> {{ fav.shopName }} </h2>
+          <h4 style="color: green;"> Loyalty Balance: <ion-badge
+              color="{{fav.loyaltyBalance < 500 ? 'amber' : 'secondary'}}">{{fav.loyaltyBalance | number: fractionSize}}
+            </ion-badge>
+          </h4>
+          <!-- <p class="latestActivityStyle"> Latest Activity: </p> -->
+        </button>
+        <ion-item-options side="left">
+          <button ion-button icon-only color="primary" (click)="removeFavourite(fav.id)">
+            <ion-icon name="close"></ion-icon>
+            UnFavourite
+          </button>
+        </ion-item-options>
+        <!-- <p text-wrap class="Nopurchases" *ngIf="shops.length <= 0"> -->
+        <!-- <ion-icon color="primary" name="alert"></ion-icon>No Loyalty Cards.</p> -->
+      </ion-item-sliding>
+
+    </ion-list>
+  </div>
 
 </ion-content>

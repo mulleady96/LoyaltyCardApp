@@ -9,7 +9,8 @@ page-login {
 
     p {
       font-size: 0.8em;
-      color: #d2d2d2;
+      font-family: 'Montserrat';
+      color: #6e6e6e;
     }
 
     ion-label {
@@ -28,6 +29,7 @@ page-login {
       min-height: 2.2rem;
       p {
         font-size: 60%;
+        font-family: 'Montserrat';
         color: red;
       }
       ion-label {
@@ -40,6 +42,15 @@ page-login {
 
     .paddingIcon {
       padding-right: 10px;
+    }
+
+    img {
+      height: 30%;
+      width: 30%;
+    }
+
+    h1 {
+      font-family: 'Montserrat';
     }
 
 }

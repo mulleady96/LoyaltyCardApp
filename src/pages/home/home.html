@@ -3,109 +3,130 @@
     <button ion-button menuToggle>
       <ion-icon name="menu" color="primary"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <img class="logoimg" src="/assets/imgs/checkoutConnectionsLogo.png" alt="checkoutConnectionsLogo">
     <ion-buttons end>
-   <button ion-button icon-only (click)="goToProfile()">
-     <ion-icon name="person" color="primary"></ion-icon>
-   </button>
- </ion-buttons>
+      <button ion-button icon-only (click)="goToProfile()">
+        <ion-icon name="person" color="primary"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-
 <ion-content padding class="cards-bg">
 
+  <ion-segment [(ngModel)]="stores">
+    <ion-segment-button value="Favourites">
+      Favourites
+    </ion-segment-button>
+    <ion-segment-button value="nearby">
+      Nearby
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="stores">
+  <ion-list *ngSwitchDefault>
+    <p>Your favorite stores, one click purchase when in store, anywhere in store.</p>
+    <ion-card class="adv-map" (click)="goToListPage()" *ngFor="let fav of favouriteShops">
+      <div style="position: relative">
+        <img src="assets/imgs/advance-card-map-madison.png">
+        <ion-fab right top>
+          <button ion-fab class="fab-map">
+            <ion-icon name='pin'></ion-icon>
+          </button>
+        </ion-fab>
+      </div>
+      <ion-item>
+        <ion-icon color="subtle" large item-start name='football'></ion-icon>
+        <h2>{{fav.shopName}}</h2>
+        <h4 style="color: green;"> Loyalty Balance: <ion-badge
+          color="{{fav.loyaltyBalance < 500 ? 'amber' : 'secondary'}}">{{fav.loyaltyBalance | number: fractionSize}}
+        </ion-badge>
+      </h4>
+        <p>11 N. Way St, Madison, WI 53703</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon color="subtle" large item-start name='wine'></ion-icon>
+        <h2>Your current location</h2>
+        <p>14 S. Hop Avenue, Madison, WI 53703</p>
+      </ion-item>
+      <ion-item actions>
+        <span ion-text item-start color="secondary" class="item-bold">18 min</span>
+        <span ion-text item-start color="subtle">(2.6 mi)</span>
+        <button ion-button color="primary" clear item-end icon-start>
+          <ion-icon name='navigate'></ion-icon>
+          Start
+        </button>
+      </ion-item>
+
+    </ion-card>
+  </ion-list>
+
+<ion-list *ngSwitchCase="'nearby'">
+  <p>Checkout connection near to you and tailored for you.</p>
   <ion-card class="adv-map" (click)="goToListPage()">
-  <div style="position: relative">
-    <img src="assets/imgs/advance-card-map-madison.png">
-    <ion-fab right top>
-      <button ion-fab class="fab-map">
-        <ion-icon name='pin'></ion-icon>
+    <div style="position: relative">
+      <img src="assets/imgs/advance-card-map-mario.png">
+
+      <ion-fab right top>
+        <button ion-fab color="danger" class="fab-map">
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='cloud'></ion-icon>
+      <h2>Yoshi's Island</h2>
+      <p>Iggy Koopa</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='leaf'></ion-icon>
+      <h2>Forest of Illusion</h2>
+      <p>Roy Koopa</p>
+    </ion-item>
+    <ion-item actions>
+      <span ion-text item-start class="item-bold">3 hr</span>
+      <span ion-text item-start color="subtle">(4.8 mi)</span>
+      <button ion-button color="danger" clear item-end icon-start>
+        <ion-icon name='navigate'></ion-icon>
+        Start
       </button>
-    </ion-fab>
-  </div>
-  <ion-item>
-    <ion-icon color="subtle" large item-start name='football'></ion-icon>
-    <h2>Museum of Football</h2>
-    <p>11 N. Way St, Madison, WI 53703</p>
-  </ion-item>
-  <ion-item>
-    <ion-icon color="subtle" large item-start name='wine'></ion-icon>
-    <h2>Institute of Fine Cocktails</h2>
-    <p>14 S. Hop Avenue, Madison, WI 53703</p>
-  </ion-item>
-  <ion-item actions>
-    <span ion-text item-start color="secondary" class="item-bold">18 min</span>
-    <span ion-text item-start color="subtle">(2.6 mi)</span>
-    <button ion-button color="primary" clear item-end icon-start>
-      <ion-icon name='navigate'></ion-icon>
-      Start
-    </button>
-  </ion-item>
+    </ion-item>
 
-</ion-card>
+  </ion-card>
 
-<ion-card class="adv-map" (click)="goToListPage()">
-  <div style="position: relative">
-    <img src="assets/imgs/advance-card-map-mario.png">
-
-    <ion-fab right top>
-      <button ion-fab color="danger" class="fab-map">
-        <ion-icon name="pin"></ion-icon>
+  <ion-card class="adv-map" (click)="goToListPage()">
+    <div style="position: relative">
+      <img src="assets/imgs/advance-card-map-paris.png">
+      <ion-fab right top>
+        <button ion-fab color="secondary">
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+      <h2>Museum of Information</h2>
+      <p>44 Rue de Info, 75010 Paris, France</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="subtle" large item-start name='leaf'></ion-icon>
+      <h2>General Pharmacy</h2>
+      <p>1 Avenue Faux, 75010 Paris, France</p>
+    </ion-item>
+    <ion-item actions>
+      <span ion-text item-start color="secondary" class="item-bold">26 min</span>
+      <span ion-text item-start color="subtle">(8.1 mi)</span>
+      <button ion-button color="secondary" clear item-end icon-start>
+        <ion-icon name='navigate'></ion-icon>
+        Start
       </button>
-    </ion-fab>
-  </div>
-  <ion-item>
-    <ion-icon color="subtle" large item-start name='cloud'></ion-icon>
-    <h2>Yoshi's Island</h2>
-    <p>Iggy Koopa</p>
-  </ion-item>
-  <ion-item>
-    <ion-icon color="subtle" large item-start name='leaf'></ion-icon>
-    <h2>Forest of Illusion</h2>
-    <p>Roy Koopa</p>
-  </ion-item>
-  <ion-item actions>
-    <span ion-text item-start class="item-bold">3 hr</span>
-    <span ion-text item-start color="subtle">(4.8 mi)</span>
-    <button ion-button color="danger" clear item-end icon-start>
-      <ion-icon name='navigate'></ion-icon>
-      Start
-    </button>
-  </ion-item>
+    </ion-item>
 
-</ion-card>
+  </ion-card>
+</ion-list>
+</div>
 
-<ion-card class="adv-map" (click)="goToListPage()">
-  <div style="position: relative">
-    <img src="assets/imgs/advance-card-map-paris.png">
-    <ion-fab right top>
-      <button ion-fab color="secondary">
-        <ion-icon name="pin"></ion-icon>
-      </button>
-    </ion-fab>
-  </div>
-  <ion-item>
-    <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
-    <h2>Museum of Information</h2>
-    <p>44 Rue de Info, 75010 Paris, France</p>
-  </ion-item>
-  <ion-item>
-    <ion-icon color="subtle" large item-start name='leaf'></ion-icon>
-    <h2>General Pharmacy</h2>
-    <p>1 Avenue Faux, 75010 Paris, France</p>
-  </ion-item>
-  <ion-item actions>
-    <span ion-text item-start color="secondary" class="item-bold">26 min</span>
-    <span ion-text item-start color="subtle">(8.1 mi)</span>
-    <button ion-button color="secondary" clear item-end icon-start>
-      <ion-icon name='navigate'></ion-icon>
-      Start
-    </button>
-  </ion-item>
-
-</ion-card>
 
 
 

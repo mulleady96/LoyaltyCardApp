@@ -1,66 +1,72 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
     <ion-title>Login</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
 
-  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+  <h1>Welcome to Checkout Connections</h1>
 
-  <ion-item>
-    <ion-label stacked>Email</ion-label>
-    <ion-input formControlName="email" type="email"
-    placeholder="Your email address"
-    [class.invalid]="!loginForm.controls.email.valid && blur">
-    </ion-input>
-  </ion-item>
+  <p>
+    Connect with stores and seamlessly checkout/purchase items from any store, all with one touch! No credit cards required, authorise your bank to allow Checkout Connections to perform transactions on your behalf.
+  </p>
+  <button ion-button block color="primary" (click)="formExpand()"><ion-icon name="mail" class="paddingIcon"></ion-icon>
+    Login With Email</button>
 
-  <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid &&
-   loginForm.controls.email.touched">
-    <p>Please enter a valid email address.</p>
-  </ion-item>
+  <form *ngIf="formShow" class="animated fadeInBottom" [formGroup]="loginForm" (submit)="loginUser()" novalidate>
 
-  <ion-item>
-    <ion-label stacked>Password</ion-label>
-    <ion-input formControlName="password" type="password"
-    placeholder="Your password"
-    [class.invalid]="!loginForm.controls.password.valid && blur">
-    </ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address"
+        [class.invalid]="!loginForm.controls.email.valid && blur">
+      </ion-input>
+    </ion-item>
 
-  <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid
-  && loginForm.controls.password.touched">
-    <p>Your password needs more than 6 characters.</p>
-  </ion-item>
+    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid &&
+     loginForm.controls.email.touched">
+      <p>Please enter a valid email address.</p>
+    </ion-item>
 
-  <button ion-button block type="submit" [disabled]="!loginForm.valid">
-    Log In
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Your password"
+        [class.invalid]="!loginForm.controls.password.valid && blur">
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid
+    && loginForm.controls.password.touched">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <button ion-button block type="submit" [disabled]="!loginForm.valid">
+      Log In
+    </button>
+
+  </form>
+
+  <button ion-button block color="danger" (click)="googleLogin()">
+    <ion-icon class="paddingIcon" name="logo-googleplus"></ion-icon>
+    Login With Google
   </button>
 
-</form>
+  <button ion-button block color="dark" (click)="gitHubLogin()">
+    <ion-icon class="paddingIcon" name="logo-github"></ion-icon>
+    Login With GitHub
+  </button>
 
-<button ion-button block color="danger" (click)="googleLogin()">
-  <ion-icon class="paddingIcon" name="logo-googleplus"></ion-icon>
-   Login With Google </button>
+  <hr>
+  <br>
 
-   <button ion-button block color="dark" (click)="gitHubLogin()">
-     <ion-icon class="paddingIcon" name="logo-github"></ion-icon>
-       Login With GitHub </button>
+  <button ion-button block clear (click)="goToSignup()">
+    Create a new account
+  </button>
 
-<hr>
-<br>
-
-<button ion-button block clear (click)="goToSignup()">
-  Create a new account
-</button>
-
-<button ion-button block clear (click)="goToResetPassword()">
-  I forgot my password 🙁
-</button>
+  <button ion-button block clear (click)="goToResetPassword()">
+    I forgot my password 🙁
+  </button>
 
 </ion-content>

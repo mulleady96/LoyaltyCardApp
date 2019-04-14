@@ -75,7 +75,7 @@
     </button>
      </ion-list-header>
      <ion-list @itemState *ngIf="RecentPurchases">
-     <ion-item *ngFor="let purchase of recentPurchases?.reverse()">
+     <ion-item *ngFor="let purchase of recentPurchases">
 
        <p text-wrap>Product: <strong>{{purchase.product}}</strong> <ion-icon name="arrow-round-up" color="secondary"></ion-icon> 25 points</p>
        <p>{{purchase.createdDate | date:'medium' }}</p>

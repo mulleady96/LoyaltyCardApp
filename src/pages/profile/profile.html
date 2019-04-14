@@ -1,6 +1,5 @@
 
 <ion-header>
-
   <ion-navbar>
     <button ion-button color="primary" menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -43,7 +42,13 @@
 <ion-item>
 <ion-label class="dob-label">Date of Birth</ion-label>
 <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/M/YYYY"
-[(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)"></ion-datetime>
+[(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)">
+<ion-col col-6 class="placeholder-profile"
+    *ngIf="!userProfile?.birthDate">
+      <span> Tap here to edit. </span>
+    </ion-col>
+  </ion-datetime>
+
 </ion-item>
 
  <ion-item (click)="updateEmail()">
