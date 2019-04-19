@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 //import { Shop } from '../../models/shop.interface';
 import { ShopApiProvider } from '../../providers/shop-api/shop-api';
 import { ProductPage } from '../product/product';
@@ -34,10 +34,14 @@ export class ShopPage {
   public recentPurchases: Array<any>;
   public lastPurchases: Array<any>;
   public RecentPurchases = false; // boolean control - controls Recent Purchases & hide button.
+  public checkoutShow: boolean;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public shopApi: ShopApiProvider) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public shopApi: ShopApiProvider, public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController) {
 
     this.shopApi.getShopDetail(this.navParams.get("shopId")) /** clicking on a shop, pass the correct id into the shop view. showing the correct index of the shopList array.*/
     .on("value", shopSnapshot => {
@@ -49,6 +53,37 @@ export class ShopPage {
   ionViewDidLoad(shopId: string) {
     this.getLastPurchase(shopId);
     this.getRecentPurchases(shopId);
+  }
+  
+
+  checkoutSearch(){ // Search for an employee in store to finalise checkout.
+    this.checkoutShow = !this.checkoutShow;
+
+    if(this.checkoutShow){
+      const loader = this.loadingCtrl.create({
+        content: 'Searching for Assistant',
+        spinner: 'dots',
+        duration: 3000
+      });
+      loader.present();
+    }
+    
+  }
+
+  authorisePayment(){
+    const loader = this.loadingCtrl.create({
+      content: 'Authorising Payment',
+      spinner: 'dots',
+      duration: 3000
+    });
+    loader.present()
+    .then(toast => {
+      toast = this.toastCtrl.create({
+      message: 'Payment Successful',
+      duration: 2000
+      });
+      toast.present();
+    })
   }
 
   addPurchase(product: string) {

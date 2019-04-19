@@ -24,10 +24,17 @@
     </ion-segment-button>
   </ion-segment>
 
+
+  <div *ngIf="favouriteShops?.length <= 0">
+      <p>No Favourites added yet. Why not add one now!</p>
+    </div>
+
   <div [ngSwitch]="stores">
   <ion-list *ngSwitchDefault>
+     
     <p>Your favorite stores, one click purchase when in store, anywhere in store.</p>
     <ion-card class="adv-map" (click)="goToListPage()" *ngFor="let fav of favouriteShops">
+     
       <div style="position: relative">
         <img src="assets/imgs/advance-card-map-madison.png">
         <ion-fab right top>

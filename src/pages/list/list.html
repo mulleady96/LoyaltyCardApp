@@ -23,6 +23,10 @@
 
   <p class="countHeader"> Loyalty Cards ({{count}}) </p>
 
+  <div *ngIf="shops?.length <= 0">
+      <p>No Loyalty cards added yet. Why not add one now!</p>
+    </div>
+
   <!-- code for dragging items around -->
   <!-- (ionItemReorder)="reOrderItem($event)" -->
   <ion-segment [(ngModel)]="stores">
@@ -37,7 +41,7 @@
 
   <br>
   <div [ngSwitch]="stores">
-    <ion-list [@itemState] *ngSwitchDefault>
+    <ion-list class="animated fadeInUp" *ngSwitchDefault>
       <h2>All</h2>
       <ion-item-sliding *ngFor="let shop of shops?.slice().reverse()">
 
@@ -65,7 +69,7 @@
 
     </ion-list>
 
-    <ion-list [@itemState] *ngSwitchCase="'Favourites'">
+    <ion-list class="animated fadeInUp" *ngSwitchCase="'Favourites'">
       <h2>Favourites</h2>
       <ion-item-sliding *ngFor="let fav of favouriteShops?.slice().reverse()">
 
@@ -83,7 +87,7 @@
         <ion-item-options side="left">
           <button ion-button icon-only color="primary" (click)="removeFavourite(fav.id)">
             <ion-icon name="close"></ion-icon>
-            UnFavourite
+            Unfavourite
           </button>
         </ion-item-options>
         <!-- <p text-wrap class="Nopurchases" *ngIf="shops.length <= 0"> -->

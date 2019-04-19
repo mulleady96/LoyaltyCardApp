@@ -1,10 +1,11 @@
-
 <ion-header>
 
   <ion-navbar>
     <ion-buttons end>
-    <button ion-button color="primary" icon-only (click)="goToMap()"><ion-icon name="map"></ion-icon></button>
-  </ion-buttons>
+      <button ion-button color="primary" icon-only (click)="goToMap()">
+        <ion-icon name="map"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title class="expanded">{{currentShop?.shopName | uppercase}}</ion-title>
   </ion-navbar>
 
@@ -23,67 +24,104 @@
     </ion-item>
 
     <ion-card-content>
-      <h4>Shop Details  </h4>
+      <h4>Shop Details </h4>
       <p text-wrap>{{currentShop?.about}} </p>
       <hr>
       <ion-row>
-          <ion-note *ngFor="let last of lastPurchases" text-wrap>
-            <h4>Last Purchase:</h4><button ion-button icon-start clear small>
-              <ion-icon name="cash"></ion-icon> {{last.createdDate | date: 'medium'}}</button></ion-note>
+        <ion-note *ngFor="let last of lastPurchases" text-wrap>
+          <h4>Last Purchase:</h4><button ion-button icon-start clear small>
+            <ion-icon name="cash"></ion-icon> {{last.createdDate | date: 'medium'}}
+          </button>
+        </ion-note>
 
       </ion-row>
     </ion-card-content>
 
     <ion-row>
       <ion-col>
-        <button ion-button icon-start clear small><ion-icon name="cart">
-        </ion-icon>
+        <button ion-button icon-start clear small>
+          <ion-icon name="cart">
+          </ion-icon>
           <div>{{currentShop?.loyaltyBalance | number: fractionSize}} Loyalty Points</div>
           <ion-row>
-            <div style="padding-left: 10px;"><ion-icon name="basket"></ion-icon>Purchases: {{purchasesCount}}</div>
+            <div style="padding-left: 10px;">
+              <ion-icon name="basket"></ion-icon>Purchases: {{purchasesCount}}
+            </div>
           </ion-row>
-          </button>
-          <button ion-button round full small color="secondary" (click)="goToProductPage()">View Products</button>
+        </button>
+        <button ion-button round full small color="secondary" (click)="goToProductPage()">View Products</button>
 
       </ion-col>
     </ion-row>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header>Recent Purchases</ion-card-header>
-    <ion-card-content>
-      <ion-item>
+  <button ion-button round full (click)="checkoutSearch()"
+    color="turqouise">{{checkoutShow ? 'Cancel Checkout' : 'Checkout'}}</button>
+  <div *ngIf="checkoutShow">
 
-      <ion-label floating>Product Name</ion-label>
-      <ion-input [(ngModel)]="product" type="text"></ion-input>
+    <br>
+    <br>
+    <h2>{{ currentShop?.shopName }} Checkout Items</h2>
+    <p>{{currentShop?.shopName | uppercase}} employee, Sarah will help check you out</p>
+    <ion-list class="animated fadeInUp" *ngFor="let purchase of recentPurchases">
+      <ion-item-sliding>
+        <button ion-item>
+          <ion-avatar item-start>
+            <img src="https://picsum.photos/200/300/?random" alt="Store Logo">
+          </ion-avatar>
+          <h2> {{ purchase.product }} </h2>
+          <h4 style="color: green;">
+            <ion-badge color="{{currentShop.loyaltyBalance < 500 ? 'amber' : 'secondary'}}">
+              Price: €5.00
+            </ion-badge>
+            <ion-badge>Quantity: 1</ion-badge>
+          </h4>
+          <!-- <p class="latestActivityStyle"> Latest Activity: </p> -->
+        </button>
+      </ion-item-sliding>
 
-    </ion-item>
-
-    <button ion-button color="primary" block (click)="addPurchase(product)"
-[disabled]="!product">
-  Add Purchase
-</button>
-
-    </ion-card-content>
-  </ion-card>
+    </ion-list>
+    <button ion-button round full color="amber" (click)="authorisePayment()">Authorise Payment</button>
 
 
-  <ion-list>
-     <ion-list-header>
-      <button ion-button round full color="secondary" color="{{!RecentPurchases ? 'secondary' : 'danger'}}" (click)="RecentPurchases=!RecentPurchases">
-        {{RecentPurchases ? 'Hide' : 'Recent Purchases'}}
-    </button>
-     </ion-list-header>
-     <ion-list @itemState *ngIf="RecentPurchases">
-     <ion-item *ngFor="let purchase of recentPurchases">
+    <ion-card>
+      <ion-card-header>Recent Purchases</ion-card-header>
+      <ion-card-content>
+        <ion-item>
 
-       <p text-wrap>Product: <strong>{{purchase.product}}</strong> <ion-icon name="arrow-round-up" color="secondary"></ion-icon> 25 points</p>
-       <p>{{purchase.createdDate | date:'medium' }}</p>
-     </ion-item>
-     <p text-wrap class="Nopurchases" *ngIf="recentPurchases.length <= 0">
-       <ion-icon color="primary" name="alert"></ion-icon>No Recent Purchases.</p>
+          <ion-label floating>Product Name</ion-label>
+          <ion-input [(ngModel)]="product" type="text"></ion-input>
 
-   </ion-list>
-   </ion-list>
+        </ion-item>
 
+        <button ion-button color="primary" block (click)="addPurchase(product)" [disabled]="!product">
+          Add Purchase
+        </button>
+
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-list>
+      <ion-list-header>
+        <button ion-button round full color="secondary" color="{{!RecentPurchases ? 'secondary' : 'danger'}}"
+          (click)="RecentPurchases=!RecentPurchases">
+          {{RecentPurchases ? 'Hide' : 'Recent Purchases'}}
+        </button>
+      </ion-list-header>
+      <ion-list @itemState *ngIf="RecentPurchases">
+        <ion-item *ngFor="let purchase of recentPurchases">
+
+          <p text-wrap>Product: <strong>{{purchase.product}}</strong>
+            <ion-icon name="arrow-round-up" color="secondary"></ion-icon> 25 points
+          </p>
+          <p>{{purchase.createdDate | date:'medium' }}</p>
+        </ion-item>
+        <p text-wrap class="Nopurchases" *ngIf="recentPurchases.length <= 0">
+          <ion-icon color="primary" name="alert"></ion-icon>No Recent Purchases.
+        </p>
+
+      </ion-list>
+    </ion-list>
+  </div>
 </ion-content>

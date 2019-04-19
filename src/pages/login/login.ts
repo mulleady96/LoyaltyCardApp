@@ -98,4 +98,11 @@ export class LoginPage {
     this.navCtrl.setRoot(HomePage);
   });
   }
+
+  twitterLogin(){
+    firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
+    .then(() => {
+      this.navCtrl.setRoot(HomePage);
+    })
+  }
 }

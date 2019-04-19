@@ -33,15 +33,25 @@ export class ProfilePage {
       duration: 3000
     });
     loader.present().then(() => {
-      this.profileProvider.getUserProfile().on("value", userProfileSnapshot => {
-        this.userProfile = userProfileSnapshot.val();
-        this.birthDate = userProfileSnapshot.val().birthDate != null ? userProfileSnapshot.val().birthDate : "DOB not set";
+      // this.profileProvider.getUserProfile().on("value", userProfileSnapshot => {
+      //   this.userProfile = userProfileSnapshot.val();
+      //   this.birthDate = userProfileSnapshot.val().birthDate == null ? "DOB not set" : userProfileSnapshot.val().birthDate;
 
-        // console.log(this.birthDate);
-      });
+      //   // console.log(this.birthDate);
+      // });
 
     });
     loader.dismiss();
+  }
+
+  ionViewDidLoad(){
+    this.profileProvider.getUserProfile().on("value", userProfileSnapshot => {
+      this.userProfile = userProfileSnapshot.val();
+      //this.birthDate = "Date not set";
+      this.birthDate = userProfileSnapshot.val() == null ? "DOB not set" : userProfileSnapshot.val().birthDate;
+
+      console.log(this.birthDate);
+    });
   }
 
   logOut(): void {
