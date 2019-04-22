@@ -20,4 +20,4 @@
 6. "npm run compodoc" - To view the entire documentation for the project, including the app structure/eco-system.
 7. Run "ionic serve" - To serve the app to a localhost.
 
-Optionally: Run "ionic corova run browser" in the CLI, to include all cordova plugins in the browser.
+Optionally: Run "ionic cordova run browser" in the CLI, to include all cordova plugins in the browser.
