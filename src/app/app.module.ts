@@ -36,7 +36,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { FlashCardComponent } from '../components/flash-card/flash-card';
 import { StatisticsPage } from '../pages/statistics/statistics';
 import { CatalogsPage } from '../pages/catalogs/catalogs';
-
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -89,6 +89,7 @@ import { CatalogsPage } from '../pages/catalogs/catalogs';
     BarcodeScanner,
     AngularFireDatabase,
     Geolocation,
+    GoogleMaps,
     File,
     FileTransfer,
     DocumentViewer,
